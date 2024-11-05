@@ -1,4 +1,6 @@
 export const colors = {
-  background: '#1E88E5',
+  background: '#000000',
   text: '#FF7043',
+  backgroundInput: '#EEEEEE',
+  button: '#841584',
 };
