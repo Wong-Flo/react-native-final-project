@@ -1,11 +1,11 @@
 import { View } from 'react-native';
-import HomeIconDisplay from '../Components/HomeIcons';
+import CategoryIconDisplay from '../Components/CategoryIcons';
 import styles from '../styles/styles';
 
 export default function Tab() {
   return (
     <View style={styles.container}>
-      <HomeIconDisplay />
+      <CategoryIconDisplay />
     </View>
   );
 }

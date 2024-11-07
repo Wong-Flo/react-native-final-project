@@ -6,6 +6,7 @@ export default StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
     alignItems: 'center',
+    justifyContent: 'center',
     fontFamily: 'Roboto',
   },
   titleContainer: {
@@ -40,11 +41,20 @@ export default StyleSheet.create({
   },
   textInput: {
     height: 40,
-    width: '100%',
+    width: '80%',
     margin: 18,
     borderWidth: 1,
     padding: 10,
     backgroundColor: colors.backgroundInput,
+  },
+  transactionTextInput: {
+    height: 40,
+    width: '80%',
+    margin: 18,
+    borderWidth: 1,
+    padding: 10,
+    backgroundColor: colors.backgroundInput,
+    flexDirection: 'row',
   },
 
   // button Styling
@@ -85,13 +95,18 @@ export default StyleSheet.create({
     fontSize: 12,
     color: 'black',
   },
-  tabsContainer: {
+
+  // Category icon display
+
+  categoryIconContainer: {
+    width: 65,
+    height: 65,
     flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 60,
     backgroundColor: colors.backgroundSecondary,
-    opacity: 0.9,
-    width: '100%',
+    opacity: 0.5,
+    borderRadius: 12,
+    margin: 15,
   },
 });

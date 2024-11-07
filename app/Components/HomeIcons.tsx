@@ -3,8 +3,8 @@ import React from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import styles from '../styles/styles';
 
-const HomeIconData = [
-  { id: '1', name: 'sack-dollar', label: 'Transaction' },
+const homeIconData = [
+  { id: '1', name: 'sack-dollar', label: 'Utilities' },
   { id: '2', name: 'piggy-bank', label: 'Savings' },
   { id: '3', name: 'folder-open', label: 'Folder' },
   { id: '4', name: 'chart-line', label: 'Chart' },
@@ -20,10 +20,10 @@ function IconItem({ name, label }: { name: string; label: string }) {
     </View>
   );
 }
-export default function IconDisplay() {
+export default function HomeIconDisplay() {
   return (
     <FlatList
-      data={HomeIconData}
+      data={homeIconData}
       renderItem={({ item }) => (
         <IconItem name={item.name} label={item.label} />
       )}

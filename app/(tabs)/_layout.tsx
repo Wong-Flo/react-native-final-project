@@ -1,25 +1,49 @@
-import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
+import { TabBarIcon } from '../Components/TabBarIcon';
 
 export default function TabLayout() {
   return (
-    <Tabs screenOptions={{ tabBarActiveTintColor: 'blue' }}>
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: 'blue',
+        tabBarStyle: {
+          height: 70,
+
+          paddingBottom: 10,
+        },
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
           title: 'Home',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="home" color={color} />
-          ),
+          tabBarIcon: ({ color, focused }) =>
+            TabBarIcon({
+              name: focused ? 'house-chimney' : 'house',
+              color,
+            }),
         }}
       />
       <Tabs.Screen
-        name="settings"
+        name="category"
         options={{
-          title: 'Settings',
-          tabBarIcon: ({ color }) => (
-            <FontAwesome size={28} name="cog" color={color} />
-          ),
+          title: 'Category',
+          tabBarIcon: ({ color, focused }) =>
+            TabBarIcon({
+              name: focused ? 'folder-open' : 'folder-closed',
+              color,
+            }),
+        }}
+      />
+      <Tabs.Screen
+        name="transaction"
+        options={{
+          title: 'Transaction',
+          tabBarIcon: ({ color, focused }) =>
+            TabBarIcon({
+              name: focused ? 'receipt' : 'file-invoice-dollar',
+              color,
+            }),
         }}
       />
     </Tabs>
