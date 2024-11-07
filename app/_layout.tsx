@@ -1,16 +1,24 @@
+import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import TitleHeader from './Components/Header';
+import IconDisplay from './Components/HomeIcons';
 import styles from './styles/styles';
 
 export default function HomeLayout() {
   return (
-    <SafeAreaView style={styles.container}>
-      <StatusBar style="light" hidden={false} />
-      <Text>
-        <TitleHeader />
-      </Text>
-    </SafeAreaView>
+    /*  <SafeAreaProvider>
+      <SafeAreaView style={styles.container}>
+         <TitleHeader />
+
+        <View>
+          <IconDisplay /> */
+    <Stack>
+      <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    </Stack>
+    /*  </View>
+      </SafeAreaView>
+    </SafeAreaProvider> */
   );
 }

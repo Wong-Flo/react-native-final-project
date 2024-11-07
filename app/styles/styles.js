@@ -4,9 +4,8 @@ import { colors } from '../../constants/colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background, // black
+    backgroundColor: 'white',
     alignItems: 'center',
-    padding: 70,
     fontFamily: 'Roboto',
   },
   titleContainer: {
@@ -15,28 +14,26 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     height: 60,
     paddingHorizontal: 15,
-    backgroundColor: 'grey',
-    opacity: 0.9,
+    backgroundColor: colors.backgroundSecondary,
+    width: '100%',
   },
   icon: {
     padding: 10,
-    color: 'green',
   },
   title: {
     fontSize: 36,
     fontWeight: 'bold',
     textAlign: 'center',
-    flex: 1,
-    color: colors.text,
+    color: colors.text, // orange
   },
   text: {
-    color: colors.text, // color orange
+    color: colors.text, // orange
     fontSize: 36,
     alignItems: 'center',
     fontWeight: 'bold',
   },
   description: {
-    color: '#FFFFFF',
+    color: colors.description,
     opacity: 50,
     alignItems: 'center',
     margin: 36,
@@ -49,6 +46,8 @@ export default StyleSheet.create({
     padding: 10,
     backgroundColor: colors.backgroundInput,
   },
+
+  // button Styling
   button: {
     backgroundColor: colors.text,
     height: '100',
@@ -63,5 +62,35 @@ export default StyleSheet.create({
     color: '#FFFFFF',
     fontSize: 16,
     fontWeight: 'bold',
+  },
+  // Icon styling
+
+  iconContainer: {
+    width: 100,
+    height: 100,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: colors.backgroundSecondary,
+    borderRadius: 25,
+    margin: 40,
+  },
+  iconWrapper: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  iconLabel: {
+    marginTop: 5,
+    fontSize: 12,
+    color: 'black',
+  },
+  tabsContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    height: 60,
+    backgroundColor: colors.backgroundSecondary,
+    opacity: 0.9,
+    width: '100%',
   },
 });

@@ -19,8 +19,8 @@ export default function TitleHeader() {
       <TouchableOpacity>
         <Ionicons name="menu" size={24} color="black" />
       </TouchableOpacity>
-      <Text style={styles.title}>Home</Text>
-      <TouchableOpacity style={styles.icon}>
+      <Text style={styles.title}>Menu</Text>
+      <TouchableOpacity>
         <Ionicons name="settings" size={24} color="black" />
       </TouchableOpacity>
     </View>
