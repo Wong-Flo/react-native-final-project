@@ -72,6 +72,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.backgroundSecondary,
+    opacity: 0.5,
     borderRadius: 25,
     margin: 40,
   },

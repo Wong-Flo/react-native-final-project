@@ -1,4 +1,5 @@
 import { StyleSheet, Text, View } from 'react-native';
+import IconDisplay from '../Components/HomeIcons';
 
 const styles = StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ const styles = StyleSheet.create({
 export default function Tab() {
   return (
     <View style={styles.container}>
-      <Text>Tab [Home|Settings]</Text>
+      <IconDisplay />
     </View>
   );
 }
