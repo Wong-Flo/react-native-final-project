@@ -6,6 +6,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: 'blue',
+        headerTitleAlign: 'center',
         tabBarStyle: {
           height: 70,
 
@@ -36,12 +37,23 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="transaction"
+        name="add"
         options={{
-          title: 'Transaction',
+          title: 'Add',
           tabBarIcon: ({ color, focused }) =>
             TabBarIcon({
-              name: focused ? 'receipt' : 'file-invoice-dollar',
+              name: focused ? 'plus' : 'add',
+              color,
+            }),
+        }}
+      />
+      <Tabs.Screen
+        name="history"
+        options={{
+          title: 'History',
+          tabBarIcon: ({ color, focused }) =>
+            TabBarIcon({
+              name: focused ? 'box-open' : 'box',
               color,
             }),
         }}

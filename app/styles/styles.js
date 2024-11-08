@@ -48,15 +48,22 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundInput,
   },
   transactionTextInput: {
-    height: 40,
+    flexDirection: 'row',
+    height: 45,
     width: '80%',
-    margin: 18,
+    margin: 10,
     borderWidth: 1,
     padding: 10,
     backgroundColor: colors.backgroundInput,
-    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
-
+  labelText: {
+    fontSize: 16,
+    color: '#333',
+  },
+  transactionIcon: {
+    marginLeft: 10,
+  },
   // button Styling
   button: {
     backgroundColor: colors.text,

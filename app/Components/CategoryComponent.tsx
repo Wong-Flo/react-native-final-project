@@ -1,13 +1,19 @@
 import { FontAwesome6 } from '@expo/vector-icons';
-import React from 'react';
+import React, { useState } from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import styles from '../styles/styles';
 
-const categoryIconData = [
+type Category = {
+  id: string;
+  name: string;
+  label: string;
+};
+
+const categoryIconData: Category[] = [
   { id: '1', name: 'screwdriver-wrench', label: 'Utilities' }, // 'sack-dollar' used for Utilities
   { id: '2', name: 'bus', label: 'Transport' }, // 'bus' for Transport
   { id: '3', name: 'shield', label: 'Insurance' }, // 'shield' for Insurance
-  { id: '4', name: 'heartbeat', label: 'Health' }, // 'heartbeat' for Health
+  { id: '4', name: 'heart-pulse', label: 'Health' }, // 'heartbeat' for Health
   { id: '5', name: 'couch', label: 'Housing' }, // 'home' for Housing
   { id: '6', name: 'utensils', label: 'Food' }, // 'utensils' for Food
   { id: '7', name: 'child', label: 'Childcare' }, // 'child' for Childcare
@@ -44,5 +50,36 @@ export default function CategoryIconDisplay() {
       numColumns={4}
       horizontal={false}
     />
+  );
+}
+export function DropdownListCategory() {
+  const [selectedValue, setSelectedValue] = useState('Choose a category');
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const handleSelect = (item: Category) => {
+    setSelectedValue(item.label);
+    setDropdownOpen(false);
+  };
+
+  return (
+    <View style={styles.container}>
+      {/* Dropdown Button */}
+      <TouchableOpacity onPress={() => setDropdownOpen(!dropdownOpen)}>
+        <Text>{selectedValue}</Text>
+      </TouchableOpacity>
+
+      {/* Dropdown Options */}
+      {dropdownOpen && (
+        <FlatList
+          data={categoryIconData}
+          renderItem={({ item }) => (
+            <TouchableOpacity onPress={() => handleSelect(item)}>
+              <Text>{item.label}</Text>
+            </TouchableOpacity>
+          )}
+          keyExtractor={(item) => item.id}
+        />
+      )}
+    </View>
   );
 }
