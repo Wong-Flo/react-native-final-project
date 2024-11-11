@@ -1,8 +1,6 @@
 import { FontAwesome6 } from '@expo/vector-icons';
-import React, { useState } from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
-import { colors } from '../../constants/colors';
 import styles from '../styles/styles';
 
 type Category = {
@@ -66,6 +64,7 @@ export function CategoryDropdown() {
           <View style={styles.transactionTextInput}>
             <Text>
               {(selectedItem && selectedItem.label) || 'Choose a Category'}
+              <FontAwesome6 name="chevron-down" />
             </Text>
             {selectedItem && (
               <FontAwesome6

@@ -1,13 +1,14 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
 import { CategoryDropdown } from '../Components/CategoryComponent';
+import DatePicker from '../Components/DatePicker';
 import styles from '../styles/styles';
 
 export default function Tab() {
   return (
     <View style={styles.container}>
       <View style={styles.transactionTextInput}>
-        <Text style={styles.labelText}>Date</Text>
+        <DatePicker />
         <FontAwesome6
           name="calendar"
           size={20}
@@ -26,7 +27,7 @@ export default function Tab() {
         />
       </View>
       <View style={styles.transactionTextInput}>
-        <Text style={styles.labelText}>Amount</Text>
+        <Text style={styles.labelText}>Price</Text>
         <FontAwesome6
           name="money-bill-1-wave"
           size={20}
