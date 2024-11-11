@@ -126,4 +126,31 @@ export default StyleSheet.create({
     borderRadius: 12,
     margin: 15,
   },
+
+  // Chart Styling
+
+  chartTabContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    marginBottom: 20,
+  },
+  chartTabButton: {
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    borderRadius: 25,
+    backgroundColor: '#ddd',
+    marginTop: 10,
+  },
+  chartActiveTabButton: {
+    backgroundColor: 'lightblue',
+  },
+  chartTabButtonText: {
+    color: '#fff',
+    fontWeight: 'bold',
+  },
+  chartContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 });
