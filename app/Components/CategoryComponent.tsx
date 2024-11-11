@@ -56,9 +56,7 @@ export function CategoryDropdown() {
   return (
     <SelectDropdown
       data={categoryIconData}
-      onSelect={(selectedItem, index) => {
-        console.log(selectedItem, index);
-      }}
+      onSelect={(selectedItem, index) => {}}
       renderButton={(selectedItem) => {
         return (
           <View style={styles.transactionTextInput}>

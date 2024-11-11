@@ -2,6 +2,9 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
 import { CategoryDropdown } from '../Components/CategoryComponent';
 import DatePicker from '../Components/DatePicker';
+import DescriptionInput from '../Components/DescriptionInput';
+import ItemInput from '../Components/ItemInput';
+import PriceInput from '../Components/PriceInput';
 import styles from '../styles/styles';
 
 export default function Tab() {
@@ -18,7 +21,7 @@ export default function Tab() {
       </View>
       <CategoryDropdown />
       <View style={styles.transactionTextInput}>
-        <Text style={styles.labelText}>Item</Text>
+        <ItemInput />
         <FontAwesome6
           name="tags"
           size={20}
@@ -27,7 +30,7 @@ export default function Tab() {
         />
       </View>
       <View style={styles.transactionTextInput}>
-        <Text style={styles.labelText}>Price</Text>
+        <PriceInput />
         <FontAwesome6
           name="money-bill-1-wave"
           size={20}
@@ -36,7 +39,7 @@ export default function Tab() {
         />
       </View>
       <View style={styles.transactionTextInput}>
-        <Text style={styles.labelText}>Description</Text>
+        <DescriptionInput />
         <FontAwesome6
           name="pen-ruler"
           size={20}
