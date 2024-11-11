@@ -1,6 +1,8 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import SelectDropdown from 'react-native-select-dropdown';
+import { colors } from '../../constants/colors';
 import styles from '../styles/styles';
 
 type Category = {
@@ -52,34 +54,43 @@ export default function CategoryIconDisplay() {
     />
   );
 }
-export function DropdownListCategory() {
-  const [selectedValue, setSelectedValue] = useState('Choose a category');
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const handleSelect = (item: Category) => {
-    setSelectedValue(item.label);
-    setDropdownOpen(false);
-  };
-
+export function CategoryDropdown() {
   return (
-    <View style={styles.container}>
-      {/* Dropdown Button */}
-      <TouchableOpacity onPress={() => setDropdownOpen(!dropdownOpen)}>
-        <Text>{selectedValue}</Text>
-      </TouchableOpacity>
-
-      {/* Dropdown Options */}
-      {dropdownOpen && (
-        <FlatList
-          data={categoryIconData}
-          renderItem={({ item }) => (
-            <TouchableOpacity onPress={() => handleSelect(item)}>
-              <Text>{item.label}</Text>
-            </TouchableOpacity>
-          )}
-          keyExtractor={(item) => item.id}
-        />
-      )}
-    </View>
+    <SelectDropdown
+      data={categoryIconData}
+      onSelect={(selectedItem, index) => {
+        console.log(selectedItem, index);
+      }}
+      renderButton={(selectedItem) => {
+        return (
+          <View style={styles.transactionTextInput}>
+            <Text>
+              {(selectedItem && selectedItem.label) || 'Choose a Category'}
+            </Text>
+            {selectedItem && (
+              <FontAwesome6
+                name={selectedItem.name}
+                size={20}
+                color="black"
+                style={styles.transactionIcon}
+              />
+            )}
+          </View>
+        );
+      }}
+      renderItem={(item, id, isSelected) => {
+        return (
+          <View
+            style={{
+              ...styles.dropdownItemStyle,
+              ...(isSelected && { backgroundColor: 'white' }),
+            }}
+          >
+            <Text>{item.label}</Text>
+            <FontAwesome6 name={item.name} />
+          </View>
+        );
+      }}
+    />
   );
 }

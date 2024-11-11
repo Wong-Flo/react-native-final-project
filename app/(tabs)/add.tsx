@@ -1,7 +1,6 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import { Text, View } from 'react-native';
-import { DropdownListCategory } from '../Components/CategoryComponent';
-import Testing from '../Components/TestingStuff';
+import { CategoryDropdown } from '../Components/CategoryComponent';
 import styles from '../styles/styles';
 
 export default function Tab() {
@@ -16,15 +15,7 @@ export default function Tab() {
           style={styles.transactionIcon}
         />
       </View>
-      <View style={styles.transactionTextInput}>
-        <Text style={styles.labelText}>Category</Text>
-        <FontAwesome6
-          name="file-waveform"
-          size={20}
-          color="black"
-          style={styles.transactionIcon}
-        />
-      </View>
+      <CategoryDropdown />
       <View style={styles.transactionTextInput}>
         <Text style={styles.labelText}>Item</Text>
         <FontAwesome6

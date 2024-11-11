@@ -75,6 +75,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingVertical: 8,
+    fontSize: 28,
+    marginRight: 8,
   },
   dropdownItemTxtStyle: {
     flex: 1,
@@ -82,10 +84,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#151E26',
   },
-  dropdownItemIconStyle: {
-    fontSize: 28,
-    marginRight: 8,
-  },
+  dropdownItemIconStyle: {},
 });
 export default function Testing() {
   return (

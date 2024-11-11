@@ -64,6 +64,16 @@ export default StyleSheet.create({
   transactionIcon: {
     marginLeft: 10,
   },
+  dropdownItemStyle: {
+    width: '100%',
+    flexDirection: 'row',
+    paddingHorizontal: 12,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 8,
+    fontSize: 28,
+    marginRight: 8,
+  },
   // button Styling
   button: {
     backgroundColor: colors.text,
