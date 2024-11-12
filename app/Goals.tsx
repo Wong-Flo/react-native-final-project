@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Button,
   FlatList,
-  StyleSheet,
   Text,
   TextInput,
   TouchableOpacity,
