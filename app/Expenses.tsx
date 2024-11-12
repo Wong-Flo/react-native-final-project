@@ -1,10 +1,10 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-export default function SavingsScreen() {
+export default function ExpensesScreen() {
   return (
     <View>
-      <Text>Savings Screen</Text>
+      <Text>Expenses Screen</Text>
     </View>
   );
 }

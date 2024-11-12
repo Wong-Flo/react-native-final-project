@@ -1,8 +1,7 @@
-import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useState } from 'react';
-import { TextInput, View } from 'react-native';
-import styles from '../styles/styles';
+import { TextInput } from 'react-native';
 
+// PriceInput Fields
 export default function PriceInput() {
   const [price, setPrice] = useState('Price');
 

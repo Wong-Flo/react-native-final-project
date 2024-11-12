@@ -153,4 +153,46 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+
+  // Goal Styling
+  goalContainer: {
+    flex: 1,
+    paddingTop: 40,
+    backgroundColor: '#f0f0f0',
+    paddingBottom: 40,
+  },
+  notesContainer: {
+    paddingBottom: 150, // Add padding to prevent notes from being cut off
+  },
+  noteItem: {
+    flex: 1,
+    margin: 5,
+    padding: 15,
+    borderRadius: 8,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 5,
+    elevation: 4,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  noteText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+  goalText: {
+    fontSize: 14,
+    color: '#555',
+  },
+
+  goalNoteInput: {
+    borderColor: '#ddd',
+    borderWidth: 1,
+    padding: 10,
+    margin: 10,
+    borderRadius: 5,
+    backgroundColor: '#fff',
+  },
 });

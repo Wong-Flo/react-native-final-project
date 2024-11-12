@@ -1,5 +1,5 @@
 import { FontAwesome6 } from '@expo/vector-icons';
-import { Text, View } from 'react-native';
+import { Button, Text, TouchableOpacity, View } from 'react-native';
 import { CategoryDropdown } from '../Components/CategoryComponent';
 import DatePicker from '../Components/DatePicker';
 import DescriptionInput from '../Components/DescriptionInput';
@@ -47,6 +47,11 @@ export default function Tab() {
           style={styles.transactionIcon}
         />
       </View>
+      <TouchableOpacity>
+        <View>
+          <Button title="Add Expense" />
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }
