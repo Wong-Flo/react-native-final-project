@@ -176,6 +176,7 @@ export default StyleSheet.create({
     elevation: 4,
     alignItems: 'center',
     justifyContent: 'center',
+    position: 'relative',
   },
   noteText: {
     fontSize: 16,
@@ -194,5 +195,21 @@ export default StyleSheet.create({
     margin: 10,
     borderRadius: 5,
     backgroundColor: '#fff',
+  },
+  deleteButton: {
+    position: 'absolute', // Position the button in the top-right corner
+    top: 5,
+    right: 5,
+    backgroundColor: 'grey',
+    borderRadius: 50,
+    width: 20,
+    height: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  deleteButtonText: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 10,
   },
 });

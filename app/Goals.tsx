@@ -1,5 +1,13 @@
 import React, { useState } from 'react';
-import { Button, FlatList, Text, TextInput, View } from 'react-native';
+import {
+  Button,
+  FlatList,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import styles from './styles/styles';
 
 // Define the type for each note item
@@ -8,7 +16,6 @@ interface NoteItem {
   note: string;
   goalAmount: string;
   color: string;
-  noteItem: string;
 }
 
 export default function App() {
@@ -17,17 +24,6 @@ export default function App() {
   const [notes, setNotes] = useState<NoteItem[]>([]);
 
   // Array of colors for sticky notes
-  const colors = [
-    '#FFEB3B',
-    '#FFC107',
-    '#FF5722',
-    '#4CAF50',
-    '#03A9F4',
-    '#9C27B0',
-    '#E91E63',
-    '#FF9800',
-    '#009688',
-  ];
 
   // Simplified function to add a new note
   const addNote = () => {
@@ -37,12 +33,17 @@ export default function App() {
       id: Date.now().toString(), // Unique ID based on timestamp
       note,
       goalAmount,
-      color: colors[notes.length % colors.length], // Rotate colors for each note
+      color: 'lightgrey', // Rotate colors for each note
     };
 
     setNotes([...notes, newNote]); // Add the new note to the list
     setNote(''); // Clear note input field
     setGoalAmount(''); // Clear goal amount input field
+  };
+
+  // Function to delete a note by its ID
+  const deleteNote = (id: string) => {
+    setNotes(notes.filter((note) => note.id !== id)); // Filter out the note with the specified ID
   };
 
   return (
@@ -54,7 +55,15 @@ export default function App() {
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <View style={[styles.noteItem, { backgroundColor: item.color }]}>
-            <Text style={styles.noteText}> {item.note}</Text>
+            {/* Delete Button in the Top-Right Corner */}
+            <TouchableOpacity
+              onPress={() => deleteNote(item.id)}
+              style={styles.deleteButton}
+            >
+              <Text style={styles.deleteButtonText}>X</Text>
+            </TouchableOpacity>
+            {/* Note Content */}
+            <Text style={styles.noteText}>{item.note}</Text>
             <Text style={styles.goalText}>Goal: ${item.goalAmount}</Text>
           </View>
         )}
@@ -62,7 +71,6 @@ export default function App() {
       />
 
       {/* Input section fixed to bottom */}
-
       <TextInput
         placeholder="Enter note"
         style={styles.goalNoteInput}
@@ -76,13 +84,7 @@ export default function App() {
         onChangeText={setGoalAmount}
         keyboardType="numeric"
       />
-      <View
-        style={{
-          width: '50%',
-          alignSelf: 'center',
-          paddingTop: 10,
-        }}
-      >
+      <View style={{ width: '50%', alignSelf: 'center', paddingTop: 10 }}>
         <Button title="Add Note" onPress={addNote} />
       </View>
     </View>
