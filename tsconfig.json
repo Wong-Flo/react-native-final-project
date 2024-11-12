@@ -15,8 +15,7 @@
     "**/*.cjs",
     "**/*.mjs",
     ".expo/types/**/*.ts",
-    "expo-env.d.ts",
-    "app/(screens)"
+    "expo-env.d.ts"
   ],
   "exclude": ["node_modules"]
 }
