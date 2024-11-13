@@ -17,7 +17,7 @@ interface GoalItem {
   color: string;
 }
 
-export default function App() {
+export default function Goals() {
   const [goal, setGoal] = useState('');
   const [goalAmount, setGoalAmount] = useState('');
   const [goals, setGoals] = useState<GoalItem[]>([]);
@@ -29,7 +29,7 @@ export default function App() {
       id: Date.now().toString(), // Unique ID based on timestamp
       goal,
       goalAmount,
-      color: 'lightgrey', // Rotate colors for each goal
+      color: 'lightgrey',
     };
 
     setGoals([...goals, newGoal]); // Add the new goal to the list
@@ -65,8 +65,7 @@ export default function App() {
         )}
         contentContainerStyle={styles.notesContainer}
       />
-
-      {/* Input section fixed to bottom */}
+      {/*   Input section fixed to bottom */}
       <TextInput
         placeholder="Enter goal"
         style={styles.goalNoteInput}
