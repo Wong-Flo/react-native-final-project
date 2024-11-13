@@ -44,6 +44,12 @@
             "newArchEnabled": true
           }
         }
+      ],
+      [
+        "expo-router",
+        {
+          "origin": "http://localhost:8081"
+        }
       ]
     ]
   }

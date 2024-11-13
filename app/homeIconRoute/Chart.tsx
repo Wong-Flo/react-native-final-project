@@ -2,7 +2,7 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { BarChart, LineChart, PieChart } from 'react-native-gifted-charts';
-import styles from './styles/styles';
+import styles from '../styles/styles';
 
 const chartData = [
   { value: 150, label: 'Jan', frontColor: '#ff6347', text: 'Jan' },

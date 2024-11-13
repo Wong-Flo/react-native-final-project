@@ -2,9 +2,12 @@ import {
   deleteGoalInsecure,
   getGoalInsecure,
   updateGoalInsecure,
-} from '../../database/goals';
-import { ExpoApiResponse } from '../../ExpoApiResponse';
-import { type Goal, goalSchema } from '../../migrations/00002-createTableGoals';
+} from '../../../database/goals';
+import { ExpoApiResponse } from '../../../ExpoApiResponse';
+import {
+  type Goal,
+  goalSchema,
+} from '../../../migrations/00002-createTableGoals';
 
 export type GoalResponseBodyGet =
   | {

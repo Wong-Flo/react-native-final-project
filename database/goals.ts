@@ -21,7 +21,7 @@ export const getGoalInsecure = async (goalId: Goal['user_id']) => {
   `;
   return goal;
 };
-export const createGoalInsecure = async (newGoal: Omit<Goal, 'id'>) => {
+export const createGoalInsecure = async (newGoal: Omit<Goal, 'user_id'>) => {
   const [goal] = await sql<Goal[]>`
     INSERT INTO
       goals (

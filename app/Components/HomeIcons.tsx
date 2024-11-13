@@ -5,10 +5,30 @@ import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import styles from '../styles/styles';
 
 const homeIconData = [
-  { id: '1', name: 'sack-dollar', label: 'Expenses', screen: '/Expenses' },
-  { id: '2', name: 'piggy-bank', label: 'Income', screen: '/Income' },
-  { id: '3', name: 'flag-checkered', label: 'Goals', screen: '/Goals' },
-  { id: '4', name: 'chart-line', label: 'Chart', screen: '/Chart' },
+  {
+    id: '1',
+    name: 'sack-dollar',
+    label: 'Expenses',
+    screen: '/homeIconRoute/Expenses',
+  },
+  {
+    id: '2',
+    name: 'piggy-bank',
+    label: 'Income',
+    screen: '/homeIconRoute/Income',
+  },
+  {
+    id: '3',
+    name: 'flag-checkered',
+    label: 'Goals',
+    screen: '/homeIconRoute/Goals',
+  },
+  {
+    id: '4',
+    name: 'chart-line',
+    label: 'Chart',
+    screen: '/homeIconRoute/Chart',
+  },
 ];
 
 // IconItem component for each icon in the grid
