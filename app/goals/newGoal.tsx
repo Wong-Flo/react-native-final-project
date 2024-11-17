@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
   },
   label: {
     fontSize: 18,
-    fontFamily: 'Poppins_400Regular',
+
     color: testColors.text,
     marginBottom: 8,
   },
@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     padding: 8,
     marginBottom: 16,
     fontSize: 16,
-    fontFamily: 'Poppins_400Regular',
   },
   inputFocused: {
     borderColor: testColors.white,
@@ -59,7 +58,6 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   text: {
-    fontFamily: 'Poppins_400Regular',
     color: testColors.cardBackground,
     textAlign: 'center',
     fontSize: 18,
@@ -74,7 +72,7 @@ export default function NewGoal() {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.addGuestContainer}>
-        <Text style={styles.label}>First Name</Text>
+        <Text style={styles.label}>Goal</Text>
         <TextInput
           style={[styles.input, focusedInput === 'goal' && styles.inputFocused]}
           value={goal}
@@ -82,13 +80,14 @@ export default function NewGoal() {
           onFocus={() => setFocusedInput('goal')}
           onBlur={() => setFocusedInput(undefined)}
         />
-        <Text style={styles.label}>Last Name</Text>
+        <Text style={styles.label}>Goal Amount</Text>
         <TextInput
           style={[
             styles.input,
             focusedInput === 'goalAmount' && styles.inputFocused,
           ]}
           value={goalAmount}
+          keyboardType="numeric"
           onChangeText={setGoalAmount}
           onFocus={() => setFocusedInput('goalAmount')}
           onBlur={() => setFocusedInput(undefined)}
@@ -97,9 +96,9 @@ export default function NewGoal() {
       <Pressable
         style={({ pressed }) => [styles.button, { opacity: pressed ? 0.5 : 1 }]}
         onPress={async () => {
-          const response = await fetch('/api/goals', {
+          const response = await fetch('/api/goals/index.ts', {
             method: 'POST',
-            body: JSON.stringify({ goal, goalAmount, attending: false }),
+            body: JSON.stringify({ goal, goalAmount: goalAmount }),
           });
 
           if (!response.ok) {

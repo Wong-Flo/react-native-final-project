@@ -23,7 +23,8 @@
     },
     "web": {
       "bundler": "metro",
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/favicon.png",
+      "output": "server"
     },
     "extra": {
       "eas": {
@@ -48,7 +49,7 @@
       [
         "expo-router",
         {
-          "origin": "http://localhost:8081"
+          "origin": "http://localhost:3000"
         }
       ]
     ]

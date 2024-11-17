@@ -2,10 +2,11 @@ import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { FlatList, SafeAreaView, StyleSheet, Text } from 'react-native';
 import { testColors } from '../../constants/colors';
-import type { Goal } from '../../migrations/00002-createTableGoals';
+import type { Goal } from '../../migrations/00000-createTableGoals';
 import type { GoalsResponseBodyGet } from '../api/goals/index+api';
 /* import type { UserResponseBodyGet } from '../api/user+api'; */
 import GoalItem from '../Components/GoalItem';
+import NewGoal from '../goals/newGoal';
 
 const styles = StyleSheet.create({
   container: {
@@ -32,7 +33,7 @@ export default function Goals() {
   // const renderItem = (item: { item: User }) => <UserItem user={item.item} />;
 
   const renderItem = (item: { item: Goal }) => (
-    <GoalItem goalList={item.item} setIsStale={setIsStale} />
+    <GoalItem goals={item.item} setIsStale={setIsStale} />
   );
 
   useFocusEffect(
@@ -45,7 +46,7 @@ export default function Goals() {
           GoalsResponseBodyGet,
         ] = await Promise.all([
           /*  fetch('/api/user').then((response) => response.json()), */
-          fetch('/api/goals').then((response) => response.json()),
+          fetch('/api/goals/index').then((response) => response.json()),
         ]);
 
         setIsStale(false);
@@ -75,7 +76,7 @@ export default function Goals() {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Show this somewhere now</Text>
+      <NewGoal />
       <FlatList
         style={styles.list}
         data={goals}

@@ -1,9 +1,9 @@
 export const colors = {
   background: '#000000',
-  text: '#FF7043',
+  text: '#000000',
   backgroundInput: '#EEEEEE',
   button: '#841584',
-  description: '#FFFFFF',
+  description: '#000000',
   backgroundSecondary: '#808080',
 };
 

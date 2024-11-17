@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import type { Goal } from '../../migrations/00002-createTableGoals';
+import type { Goal } from '../../migrations/00000-createTableGoals';
 
 const styles = StyleSheet.create({
   card: {
@@ -53,13 +53,27 @@ const styles = StyleSheet.create({
 });
 
 type Props = {
-  goalList: Goal;
+  goals: Goal;
   setIsStale: (isStale: boolean) => void;
 };
 
-export default function GoalItem({ goalList, setIsStale }: Props) {
-  const { user_id, goal, goal_amount } = goalList;
+export default function GoalItem({ goals, setIsStale }: Props) {
+  const { user_id, goal, goal_amount } = goals;
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`/api/goals/${user_id}`, {
+        method: 'DELETE',
+      });
 
+      if (!response.ok) {
+        throw new Error('Failed to delete goal');
+      }
+
+      setIsStale(true);
+    } catch (error) {
+      console.error('Error deleting goal:', error);
+    }
+  };
   return (
     <Link href={`/goals/${user_id}`} asChild>
       <Pressable>
@@ -71,16 +85,7 @@ export default function GoalItem({ goalList, setIsStale }: Props) {
             </Text>
           </View>
           <View style={styles.actionWrapper}>
-            <TouchableOpacity
-              style={styles.button}
-              onPress={async () => {
-                await fetch(`/api/goals/${user_id}`, {
-                  method: 'DELETE',
-                });
-
-                setIsStale(true);
-              }}
-            >
+            <TouchableOpacity style={styles.button} onPress={handleDelete}>
               <Ionicons name="trash-outline" size={24} color={'#8892b0'} />
             </TouchableOpacity>
           </View>

@@ -1,10 +1,12 @@
-import React from 'react';
 import { Text, View } from 'react-native';
+import CreateGoal from '../Components/GoalComponents/CreateGoal';
+import styles from '../styles/styles';
 
-export default function ExpensesScreen() {
+export default function Goals() {
   return (
-    <View>
-      <Text>Expenses Screen</Text>
+    <View style={styles.goalContainer}>
+      <Text>Create a New Goal</Text>
+      <CreateGoal />
     </View>
   );
 }

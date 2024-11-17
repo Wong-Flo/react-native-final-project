@@ -76,9 +76,9 @@ export default StyleSheet.create({
   },
   // button Styling
   button: {
-    backgroundColor: colors.text,
+    backgroundColor: 'lightblue',
     height: '100',
-    width: '100%',
+    width: '80%',
     borderRadius: 25,
     elevation: 3,
     justifyContent: 'center',
@@ -86,7 +86,7 @@ export default StyleSheet.create({
     padding: 18,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: '#000000',
     fontSize: 16,
     fontWeight: 'bold',
   },

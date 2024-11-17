@@ -13,8 +13,8 @@ const homeIconData = [
   },
   {
     id: '2',
-    name: 'piggy-bank',
-    label: 'Income',
+    name: 'note-sticky',
+    label: 'Notes',
     screen: '/homeIconRoute/Income',
   },
   {
