@@ -47,6 +47,9 @@ export default StyleSheet.create({
     padding: 10,
     backgroundColor: colors.backgroundInput,
   },
+  inputFocused: {
+    borderColor: colors.white,
+  },
   transactionTextInput: {
     flexDirection: 'row',
     height: 45,

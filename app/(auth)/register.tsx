@@ -1,52 +1,114 @@
 import { FontAwesome6 } from '@expo/vector-icons';
-import { router, useUnstableGlobalHref } from 'expo-router';
-import React, { useState } from 'react';
-import { Text, TextInput, TouchableOpacity, View } from 'react-native';
-import styles from '../styles/styles';
+import { router } from 'expo-router';
+import React, { useCallback, useState } from 'react';
+import {
+  Alert,
+  SafeAreaView,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
+import styles from '../styles/styles'; // Make sure your styles are updated similarly
 
 export default function RegisterScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [focusedInput, setFocusedInput] = useState<string | undefined>();
+
+  // Focus handling for input fields
+  const handleFocus = (field: string) => {
+    setFocusedInput(field);
+  };
+
+  const handleBlur = () => {
+    setFocusedInput(undefined);
+  };
+
+  // Handle registration process
+  const handleRegister = async () => {
+    const registrationData = { username, password };
+
+    try {
+      const response = await fetch('/api/register', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(registrationData),
+      });
+
+      const responseBody = await response.json();
+
+      if (!response.ok) {
+        let errorMessage = 'Error creating user';
+        if ('error' in responseBody) {
+          errorMessage = responseBody.error;
+        }
+        Alert.alert('Registration Error', errorMessage, [{ text: 'OK' }]);
+        return;
+      }
+
+      // Clear input fields on successful registration
+      setUsername('');
+      setPassword('');
+
+      // Redirect to the desired page (e.g., /dashboard or /login)
+      router.replace('/login'); // Change the route as needed
+    } catch (error) {
+      Alert.alert(
+        'Error',
+        'An error occurred during registration. Please try again.',
+        [{ text: 'OK' }],
+      );
+    }
+  };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       {/* Back Button */}
-      <TouchableOpacity
-        onPress={() => router.push('/login')}
-        style={{ position: 'absolute', top: 40, left: 20 }}
-      >
-        <FontAwesome6
-          name="circle-arrow-left"
-          size={16}
-          color="black"
-          style={styles.transactionIcon}
-        />
-      </TouchableOpacity>
 
       <Text style={styles.text}>Sign Up</Text>
       <Text style={styles.description}>Welcome to the registration page!</Text>
 
       {/* Username Input */}
       <TextInput
-        style={styles.textInput}
+        style={[
+          styles.textInput,
+          focusedInput === 'username' && styles.inputFocused,
+        ]}
         placeholder="Username"
         value={username}
         onChangeText={setUsername}
+        onFocus={() => handleFocus('username')}
+        onBlur={handleBlur}
       />
 
       {/* Password Input */}
       <TextInput
-        style={styles.textInput}
+        style={[
+          styles.textInput,
+          focusedInput === 'password' && styles.inputFocused,
+        ]}
         placeholder="Password"
         secureTextEntry
         value={password}
         onChangeText={setPassword}
+        onFocus={() => handleFocus('password')}
+        onBlur={handleBlur}
       />
-
-      {/* Placeholder Submit Button */}
-      <TouchableOpacity style={[styles.button, { marginTop: 20 }]}>
+      <TouchableOpacity onPress={() => router.push('/login')}>
+        <Text style={styles.description}>Already have an account?</Text>
+      </TouchableOpacity>
+      {/* Register Button */}
+      <TouchableOpacity
+        style={[styles.button, { marginTop: 20 }]}
+        onPress={handleRegister}
+      >
         <Text style={styles.buttonText}>Register</Text>
       </TouchableOpacity>
-    </View>
+
+      {/* Login Link */}
+    </SafeAreaView>
   );
 }

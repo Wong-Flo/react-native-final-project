@@ -11,7 +11,7 @@ export type Goal = {
 };
 
 export const goalSchema = z.object({
-  // user_id: z.number().min(1),
+  user_id: z.number().min(1),
   goal: z.string().min(3),
   goal_amount: z.number().min(1),
 });
