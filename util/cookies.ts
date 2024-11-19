@@ -25,3 +25,8 @@ export function deleteSerializedRegisterSessionTokenCookie() {
     sameSite: 'lax',
   });
 }
+export function parseCookies(cookieHeader: string): Record<string, string> {
+  return Object.fromEntries(
+    cookieHeader.split('; ').map((cookie) => cookie.split('=')),
+  );
+}

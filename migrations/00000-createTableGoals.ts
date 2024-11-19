@@ -1,28 +1,25 @@
-//reworked
-
 import type { Sql } from 'postgres';
 import { z } from 'zod';
 
 export type Goal = {
   id: number;
   user_id: number;
-  goal: string;
-  goal_amount: number;
+  goalTitle: string;
+  goalAmountContent: number;
 };
 
 export const goalSchema = z.object({
-  user_id: z.number().min(1),
-  goal: z.string().min(3),
-  goal_amount: z.number().min(1),
+  goalTitle: z.string().min(3),
+  goalAmountContent: z.number().min(1),
 });
 
 export async function up(sql: Sql) {
   await sql`
     CREATE TABLE goals (
       id SERIAL PRIMARY KEY,
-      user_id INTEGER NOT NULL,
-      goal VARCHAR(255) NOT NULL,
-      goal_amount DECIMAL(10, 2) NOT NULL
+      user_id integer NOT NULL,
+      goal_title VARCHAR(255) NOT NULL,
+      goal_amount_content DECIMAL(10, 2) NOT NULL
     );
   `;
 }

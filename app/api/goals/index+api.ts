@@ -1,113 +1,95 @@
-import { createGoalInsecure, getGoalsInsecure } from '../../../database/goals';
-import { getValidSession } from '../../../database/sessions';
+import { parse } from 'cookie';
+import { createGoal, getGoals } from '../../../database/goals';
 import { ExpoApiResponse } from '../../../ExpoApiResponse';
 import {
   type Goal,
   goalSchema,
 } from '../../../migrations/00000-createTableGoals';
 
-// Utility function to parse cookies
-function parseCookies(cookieHeader: string): Record<string, string> {
-  return Object.fromEntries(
-    cookieHeader.split('; ').map((cookie) => cookie.split('=')),
-  );
-}
+export type GoalsResponseBodyGet =
+  | {
+      goals: Goal[];
+    }
+  | {
+      error: string;
+      errorIssues?: { message: string }[];
+    };
 
-// GET - Fetch all goals
-export type GoalsResponseBodyGet = {
-  goals: Goal[];
-};
-export async function GET(): Promise<ExpoApiResponse<GoalsResponseBodyGet>> {
-  try {
-    const goals = await getGoalsInsecure();
-    return ExpoApiResponse.json({ goals });
-  } catch (error) {
-    // Return an empty array for goals and an error message
-    return ExpoApiResponse.json(
-      { goals: [], error: 'Error fetching goals' },
-      { status: 500 },
-    );
+export async function GET(
+  request: Request,
+): Promise<ExpoApiResponse<GoalsResponseBodyGet>> {
+  // 1. get the session token from the cookie
+  const cookies = parse(request.headers.get('cookie') || '');
+  const token = cookies.sessionToken;
+
+  if (!token) {
+    return ExpoApiResponse.json({
+      error: 'No session token found BM2',
+    });
   }
+  const goals = await getGoals(token);
+  return ExpoApiResponse.json({
+    goals: goals,
+  });
 }
-// POST - Create a new goal
-export type GoalsResponseBodyPost =
-  | { goal: Goal }
-  | { error: string; errorIssues?: { message: string }[] };
 
+export type GoalsResponseBodyPost =
+  | {
+      goal: Goal;
+    }
+  | {
+      error: string;
+      errorIssues?: { message: string }[];
+    };
 export async function POST(
   request: Request,
 ): Promise<ExpoApiResponse<GoalsResponseBodyPost>> {
-  try {
-    // Extract cookies from the request
-    const cookieHeader = request.headers.get('Cookie');
-    if (!cookieHeader) {
-      return ExpoApiResponse.json(
-        { error: 'Unauthorized: No cookies found' },
-        { status: 401 },
-      );
-    }
-
-    // Parse the session token from cookies
-    const cookies = parseCookies(cookieHeader);
-    const sessionToken = cookies.sessionToken;
-
-    if (!sessionToken) {
-      return ExpoApiResponse.json(
-        { error: 'Unauthorized: No session token found' },
-        { status: 401 },
-      );
-    }
-
-    // Validate session and get user_id
-    const session = await getValidSession(sessionToken);
-    if (!session) {
-      return ExpoApiResponse.json(
-        { error: 'Unauthorized: Invalid or expired session' },
-        { status: 401 },
-      );
-    }
-
-    // Extract user ID from the session
-    const userId = session.userId;
-
-    // Get the request body (goal data)
-    const requestBody = await request.json();
-
-    // Add user_id to the goal data
-    const requestWithUserId = { ...requestBody, user_id: userId };
-
-    // Validate the data with the schema
-    const result = goalSchema.safeParse(requestWithUserId);
-
-    if (!result.success) {
-      return ExpoApiResponse.json(
-        {
-          error: 'Request does not contain a valid goal object.',
-          errorIssues: result.error.issues,
-        },
-        { status: 400 },
-      );
-    }
-
-    const newGoal = result.data;
-
-    // Store the goal in the database
-    const goal = await createGoalInsecure(newGoal);
-
-    if (!goal) {
-      return ExpoApiResponse.json(
-        { error: 'Goal could not be created.' },
-        { status: 500 },
-      );
-    }
-
-    // Return the created goal
-    return ExpoApiResponse.json({ goal });
-  } catch (error) {
-    console.error('Error during goal creation:', error);
+  // Get the goal Date from the request
+  const requestBody = await request.json();
+  //Validate goals data with ZOD
+  const result = goalSchema.safeParse(requestBody);
+  if (!result.success) {
     return ExpoApiResponse.json(
-      { error: 'An unexpected error occurred while creating the goal.' },
-      { status: 500 },
+      {
+        error: 'Request does not contain note object BM3',
+        errorIssues: result.error.issues,
+      },
+      {
+        status: 400,
+      },
     );
   }
+
+  // get the token from the cookie
+  const cookies = parse(request.headers.get('cookie') || '');
+  const token = cookies.sessionToken;
+  if (token) {
+    return ExpoApiResponse.json({
+      error: 'No session token found BM4',
+    });
+  }
+
+  //4. create the goal
+  const newGoal =
+    token &&
+    (await createGoal(
+      token,
+      result.data.goalTitle,
+      result.data.goalAmountContent,
+    ));
+
+  //5. If the goal creation fails, return an error
+
+  if (!newGoal) {
+    return ExpoApiResponse.json(
+      {
+        error: 'Goal not created or access denied creating goal BM5',
+      },
+      {
+        status: 500,
+      },
+    );
+  }
+  // 6. Return the text content of the goal
+  return ExpoApiResponse.json({ goal: newGoal });
 }
