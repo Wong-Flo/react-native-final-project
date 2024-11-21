@@ -52,14 +52,21 @@ export default function CategoryIconDisplay() {
     />
   );
 }
-export function CategoryDropdown() {
+type SelectDropdownProps = {
+  selectedItem: { label: string; name: string } | null;
+  setSelectedItem: (item: { label: string; name: string }) => void;
+};
+export function CategoryDropdown({
+  selectedItem,
+  setSelectedItem,
+}: SelectDropdownProps) {
   return (
     <SelectDropdown
       data={categoryIconData}
-      onSelect={(selectedItem, index) => {
-        // console.log(selectedItem, index)
+      onSelect={(selectedItem) => {
+        setSelectedItem(selectedItem);
       }}
-      renderButton={(selectedItem) => {
+      renderButton={() => {
         return (
           <View style={styles.transactionTextInput}>
             <Text>
@@ -77,7 +84,7 @@ export function CategoryDropdown() {
           </View>
         );
       }}
-      renderItem={(item, id, isSelected) => {
+      renderItem={(item, isSelected) => {
         return (
           <View
             style={{

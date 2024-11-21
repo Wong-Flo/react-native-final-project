@@ -61,7 +61,7 @@ export async function createGoal(
 }
 export const deleteGoal = async (goalId: Goal['id']) => {
   const [goal] = await sql<Goal[]>`
-    DELETE FROM guests
+    DELETE FROM goals
     WHERE
       id = ${goalId}
     RETURNING

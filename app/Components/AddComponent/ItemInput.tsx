@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TextInput } from 'react-native';
 
-export default function ItemInput() {
-  const [item, setItem] = useState('Item');
-
-  const handleFocus = () => {
-    setItem('');
-  };
-
+type ItemInputProps = {
+  item: string;
+  setItem: (value: string) => void;
+  onFocus: () => void;
+};
+export default function ItemInput({ item, setItem, onFocus }: ItemInputProps) {
   return (
     <TextInput
       onChangeText={setItem}
       value={item}
-      onFocus={handleFocus} // Trigger clearing the input when focused
+      onFocus={onFocus}
       placeholder="Enter Item"
     />
   );
