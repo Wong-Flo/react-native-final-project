@@ -187,9 +187,16 @@ export default StyleSheet.create({
     shadowRadius: 4,
     elevation: 5, // For Android shadow
     transform: [{ rotate: '-2deg' }], // Slightly tilted
-    width: 150, // Fixed width
+    width: 140, // Fixed width
     height: 100, // Fixed height
     justifyContent: 'space-between', // Space out items
+  },
+  pinIcon: {
+    position: 'absolute', // Position the button in the top-right corner
+
+    left: 20,
+    zIndex: 1, // Ensure the pin icon is on top of the note
+    transform: [{ rotate: '45deg' }],
   },
   noteText: {
     fontSize: 16,
@@ -197,7 +204,7 @@ export default StyleSheet.create({
     color: '#333',
   },
   goalText: {
-    fontSize: 14,
+    fontSize: 15,
     color: '#555',
   },
 

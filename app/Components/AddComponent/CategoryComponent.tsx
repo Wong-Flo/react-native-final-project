@@ -1,7 +1,7 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
-import styles from '../styles/styles';
+import styles from '../../styles/styles';
 
 type Category = {
   id: string;

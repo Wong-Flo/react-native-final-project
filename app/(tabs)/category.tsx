@@ -1,5 +1,5 @@
 import { View } from 'react-native';
-import CategoryIconDisplay from '../Components/CategoryComponent';
+import CategoryIconDisplay from '../Components/AddComponent/CategoryComponent';
 import styles from '../styles/styles';
 
 export default function Tab() {

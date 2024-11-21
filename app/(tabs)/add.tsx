@@ -1,10 +1,10 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import { Button, Text, TouchableOpacity, View } from 'react-native';
-import { CategoryDropdown } from '../Components/CategoryComponent';
-import DatePicker from '../Components/DatePicker';
-import DescriptionInput from '../Components/DescriptionInput';
-import ItemInput from '../Components/ItemInput';
-import PriceInput from '../Components/PriceInput';
+import { CategoryDropdown } from '../Components/AddComponent/CategoryComponent';
+import DatePicker from '../Components/AddComponent/DatePicker';
+import DescriptionInput from '../Components/AddComponent/DescriptionInput';
+import ItemInput from '../Components/AddComponent/ItemInput';
+import PriceInput from '../Components/AddComponent/PriceInput';
 import styles from '../styles/styles';
 
 export default function Tab() {

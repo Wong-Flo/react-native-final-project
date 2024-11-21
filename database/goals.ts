@@ -58,24 +58,14 @@ export async function createGoal(
   goals.*
   `;
   return goal;
-  // Log the query with parameters
-  console.log('Executing query:', {
-    query: `
-    INSERT INTO
-    goals (user_id, goal_title, goal_amount_content)
-    (
-      SELECT
-        sessions.user_id,
-        $1,  -- goalTitle
-        $2   -- goalAmountContent
-      FROM
-        sessions
-      WHERE
-        sessions.token = $3
-        AND sessions.expiry_timestamp > now()
-    )
-    RETURNING goals.*;
-  `,
-    parameters: [goalTitle, goalAmountContent, sessionToken],
-  });
 }
+export const deleteGoal = async (goalId: Goal['id']) => {
+  const [goal] = await sql<Goal[]>`
+    DELETE FROM guests
+    WHERE
+      id = ${goalId}
+    RETURNING
+      goals.*
+  `;
+  return goal;
+};
