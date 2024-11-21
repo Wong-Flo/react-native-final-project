@@ -77,6 +77,14 @@ export default StyleSheet.create({
     fontSize: 28,
     marginRight: 8,
   },
+  bottomView: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    padding: 20,
+  },
+
   // button Styling
   button: {
     backgroundColor: 'lightblue',
@@ -167,19 +175,21 @@ export default StyleSheet.create({
   notesContainer: {
     paddingBottom: 150, // Add padding to prevent notes from being cut off
   },
-  noteItem: {
-    flex: 1,
-    margin: 5,
+  card: {
+    backgroundColor: '#FFFB99', // Light pastel yellow
     padding: 15,
+    alignItems: 'center',
+    margin: 10,
     borderRadius: 8,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.3,
-    shadowRadius: 5,
-    elevation: 4,
-    alignItems: 'center',
-    justifyContent: 'center',
-    position: 'relative',
+    shadowOffset: { width: 2, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    elevation: 5, // For Android shadow
+    transform: [{ rotate: '-2deg' }], // Slightly tilted
+    width: 150, // Fixed width
+    height: 100, // Fixed height
+    justifyContent: 'space-between', // Space out items
   },
   noteText: {
     fontSize: 16,

@@ -46,12 +46,14 @@ export async function POST(
 ): Promise<ExpoApiResponse<GoalsResponseBodyPost>> {
   // Get the goal Date from the request
   const requestBody = await request.json();
+  console.log(requestBody);
   //Validate goals data with ZOD
   const result = goalSchema.safeParse(requestBody);
+
   if (!result.success) {
     return ExpoApiResponse.json(
       {
-        error: 'Request does not contain note object BM3',
+        error: 'Request does not contain goal object BM3',
         errorIssues: result.error.issues,
       },
       {
@@ -59,24 +61,20 @@ export async function POST(
       },
     );
   }
-
   // get the token from the cookie
   const cookies = parse(request.headers.get('cookie') || '');
+
   const token = cookies.sessionToken;
-  if (token) {
+  if (!token) {
     return ExpoApiResponse.json({
-      error: 'No session token found BM4',
+      error: 'No session token found BM82',
     });
   }
 
   //4. create the goal
   const newGoal =
     token &&
-    (await createGoal(
-      token,
-      result.data.goalTitle,
-      result.data.goalAmountContent,
-    ));
+    (await createGoal(token, result.data.goalTitle, result.data.goalAmount));
 
   //5. If the goal creation fails, return an error
 

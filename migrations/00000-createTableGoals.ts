@@ -10,7 +10,7 @@ export type Goal = {
 
 export const goalSchema = z.object({
   goalTitle: z.string().min(3),
-  goalAmountContent: z.number().min(1),
+  goalAmount: z.number().min(1),
 });
 
 export async function up(sql: Sql) {

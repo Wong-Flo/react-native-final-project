@@ -1,5 +1,5 @@
 import type { User } from '../migrations/00001-createTableUsers';
-import type { Session } from '../migrations/00002-CreateTableSessions';
+import type { Session } from '../migrations/00002-createTableSessions';
 import { sql } from './connect';
 
 export async function createSessionInsecure(
@@ -37,7 +37,10 @@ export async function getValidSession(sessionToken: Session['token']) {
 
 export async function deleteSession(sessionToken: Session['token']) {
   const [session] = await sql<Pick<Session, 'id' | 'token'>[]>`
-    DELETE FROM sessions
+    DELETE
+
+    FROM
+    sessions
     WHERE
       sessions.token = ${sessionToken}
     RETURNING

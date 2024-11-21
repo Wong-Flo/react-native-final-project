@@ -1,5 +1,5 @@
 import type { Goal } from '../migrations/00000-createTableGoals';
-import type { Session } from '../migrations/00002-CreateTableSessions';
+import type { Session } from '../migrations/00002-createTableSessions';
 import { sql } from './connect';
 
 export async function getGoals(sessionToken: Session['token']) {
@@ -9,7 +9,7 @@ export async function getGoals(sessionToken: Session['token']) {
   FROM
   goals
   INNER JOIN sessions ON(
-    session.token =${sessionToken}
+    sessions.token =${sessionToken}
     AND sessions.user_id = goals.user_id
     AND expiry_timestamp > now()
   )
@@ -26,7 +26,7 @@ export async function getGoal(
   FROM
   goals
   INNER JOIN sessions ON (
-    sessions.token = ${sessionToken}
+  token = ${sessionToken}
     AND sessions.user_id = goals.user_id
     AND expiry_timestamp > now()
   )
@@ -58,4 +58,24 @@ export async function createGoal(
   goals.*
   `;
   return goal;
+  // Log the query with parameters
+  console.log('Executing query:', {
+    query: `
+    INSERT INTO
+    goals (user_id, goal_title, goal_amount_content)
+    (
+      SELECT
+        sessions.user_id,
+        $1,  -- goalTitle
+        $2   -- goalAmountContent
+      FROM
+        sessions
+      WHERE
+        sessions.token = $3
+        AND sessions.expiry_timestamp > now()
+    )
+    RETURNING goals.*;
+  `,
+    parameters: [goalTitle, goalAmountContent, sessionToken],
+  });
 }
