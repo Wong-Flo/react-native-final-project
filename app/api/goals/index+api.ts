@@ -46,7 +46,6 @@ export async function POST(
 ): Promise<ExpoApiResponse<GoalsResponseBodyPost>> {
   // Get the goal Date from the request
   const requestBody = await request.json();
-  console.log(requestBody);
   //Validate goals data with ZOD
   const result = goalSchema.safeParse(requestBody);
 
