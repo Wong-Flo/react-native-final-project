@@ -27,7 +27,7 @@ export default function LoginScreen() {
 
       if (response.ok) {
         // If login is successful, redirect the user to another page
-        router.push('/(tabs)'); // Or wherever you want to redirect after login
+        router.push('/(tabs)'); //
       } else {
         // Show an error alert if the login failed
         Alert.alert(

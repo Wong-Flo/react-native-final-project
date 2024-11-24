@@ -14,6 +14,7 @@ export async function getGoals(sessionToken: Session['token']) {
     AND expiry_timestamp > now()
   )
   `;
+
   return goals;
 }
 export async function getGoal(

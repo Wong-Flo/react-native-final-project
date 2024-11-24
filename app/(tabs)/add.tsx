@@ -66,6 +66,9 @@ export default function AddScreen() {
 
   return (
     <View style={styles.container}>
+      <Text style={[styles.text, { paddingBottom: 30 }]}>
+        Create a Transaction
+      </Text>
       {/* Date Picker */}
       <View style={styles.transactionTextInput}>
         <DatePicker date={date} setDate={setDate} />
@@ -122,18 +125,9 @@ export default function AddScreen() {
 
       {/* Add Expense Button */}
 
-      <View>
-        <Button title="Add Expense" onPress={handleAddExpense} />
-      </View>
-
-      {/* Display Input Values */}
-      <View>
-        <Text>{`Description: ${description}`}</Text>
-        <Text>{`Item: ${item}`}</Text>
-        <Text>{`Date: ${justDate ? new Date(justDate).toLocaleDateString() : 'No date selected'}`}</Text>
-        <Text>{`Selected Category: ${selectedCategory ? selectedCategory.label : 'None'}`}</Text>
-        <Text>{price !== null ? `€${price.toFixed(2)}` : 'None'}</Text>
-      </View>
+      <TouchableOpacity style={styles.button} onPress={handleAddExpense}>
+        <Text style={styles.buttonText}>Add Expense</Text>
+      </TouchableOpacity>
     </View>
   );
 }

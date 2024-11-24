@@ -48,12 +48,12 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="history"
+        name="logoutScreen"
         options={{
-          title: 'History',
+          title: 'Logout',
           tabBarIcon: ({ color, focused }) =>
             TabBarIcon({
-              name: focused ? 'box-open' : 'box',
+              name: focused ? 'user-large-slash' : 'user-tie',
               color,
             }),
         }}

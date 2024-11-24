@@ -33,7 +33,7 @@ export async function POST(
   const existingUser = await getUserInsecure(result.data.username);
   if (existingUser) {
     return ExpoApiResponse.json(
-      { error: 'Username already taken' },
+      { error: 'Username already taken :)' },
       { status: 400 },
     );
   }

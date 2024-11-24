@@ -14,6 +14,7 @@ export async function getExpenses(sessionToken: Session['token']) {
     AND expiry_timestamp > now()
   )
 
+
   `;
   return expenses;
 }

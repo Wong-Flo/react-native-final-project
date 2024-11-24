@@ -4,31 +4,14 @@ import { colors } from '../../constants/colors';
 export default StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: colors.background,
     alignItems: 'center',
     justifyContent: 'center',
     fontFamily: 'Roboto',
   },
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    height: 60,
-    paddingHorizontal: 15,
-    backgroundColor: colors.backgroundSecondary,
-    width: '100%',
-  },
-  icon: {
-    padding: 10,
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: colors.text, // orange
-  },
+
   text: {
-    color: colors.text, // orange
+    color: colors.text,
     fontSize: 36,
     alignItems: 'center',
     fontWeight: 'bold',
@@ -60,10 +43,7 @@ export default StyleSheet.create({
     backgroundColor: colors.backgroundInput,
     justifyContent: 'space-between',
   },
-  labelText: {
-    fontSize: 16,
-    color: '#333',
-  },
+
   transactionIcon: {
     marginLeft: 10,
   },
@@ -87,7 +67,7 @@ export default StyleSheet.create({
 
   // button Styling
   button: {
-    backgroundColor: 'lightblue',
+    backgroundColor: colors.backgroundSecondary,
     height: '100',
     width: '80%',
     borderRadius: 25,
@@ -97,7 +77,7 @@ export default StyleSheet.create({
     padding: 18,
   },
   buttonText: {
-    color: '#000000',
+    color: colors.text,
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -110,7 +90,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.backgroundSecondary,
-    opacity: 0.5,
+
     borderRadius: 25,
     margin: 40,
   },
@@ -121,7 +101,7 @@ export default StyleSheet.create({
   iconLabel: {
     marginTop: 5,
     fontSize: 12,
-    color: 'black',
+    color: 'Black',
   },
 
   // Category icon display
@@ -133,7 +113,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: colors.backgroundSecondary,
-    opacity: 0.5,
+
     borderRadius: 12,
     margin: 15,
   },
@@ -153,7 +133,7 @@ export default StyleSheet.create({
     marginTop: 10,
   },
   chartActiveTabButton: {
-    backgroundColor: 'lightblue',
+    backgroundColor: colors.backgroundSecondary,
   },
   chartTabButtonText: {
     color: '#fff',
@@ -231,5 +211,38 @@ export default StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
     fontSize: 10,
+  },
+
+  //table Container
+  tableContainer: {
+    flex: 1,
+    padding: 10,
+    backgroundColor: '#f8f9fa',
+  },
+  tableHeaderRow: {
+    flexDirection: 'row',
+    backgroundColor: '#343a40',
+    padding: 10,
+    borderRadius: 5,
+  },
+  tableHeaderText: {
+    flex: 1,
+    fontSize: 12,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+  },
+  tableBodyRow: {
+    flexDirection: 'row',
+    backgroundColor: '#ffffff',
+    padding: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#e9ecef',
+  },
+  tableBodyText: {
+    flex: 1,
+    fontSize: 12,
+    color: '#212529',
+    textAlign: 'center',
   },
 });
