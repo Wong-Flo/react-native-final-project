@@ -4,7 +4,7 @@ import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import styles from '../../styles/styles';
 
-type Category = {
+export type Category = {
   id: string;
   name: string;
   label: string;
@@ -41,16 +41,16 @@ function IconItem({ name, label }: { name: string; label: string }) {
   );
 }
 export default function CategoryIconDisplay() {
-  const router = useRouter();
+  /*  const router = useRouter();
   const categoryIconPress = (categoryId: string) => {
     router.push(`/Components/GoalComponents/${categoryId}`);
-  };
+  }; */
 
   return (
     <FlatList
       data={categoryIconData}
       renderItem={({ item }) => (
-        <TouchableOpacity onPress={() => categoryIconPress(item.id)}>
+        <TouchableOpacity /* onPress={() => categoryIconPress(item.id)} */>
           <IconItem name={item.name} label={item.label} />
         </TouchableOpacity>
       )}
