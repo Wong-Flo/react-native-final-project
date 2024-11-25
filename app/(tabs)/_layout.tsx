@@ -1,11 +1,12 @@
 import { Tabs } from 'expo-router';
+import { colors } from '../../constants/colors';
 import { TabBarIcon } from '../Components/TabBarIcon';
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: 'blue',
+        tabBarActiveTintColor: colors.iconBackground,
         headerTitleAlign: 'center',
         tabBarStyle: {
           height: 70,

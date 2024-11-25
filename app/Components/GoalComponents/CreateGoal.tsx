@@ -12,7 +12,9 @@ export default function NewGoal() {
     <>
       <View style={[styles.goalContainer, { flex: 1 }]}>
         <View style={styles.bottomView}>
-          <Text style={[styles.text, { margin: 10, fontSize: 20 }]}>Goal</Text>
+          <Text style={[styles.text, { margin: 10, fontSize: 20 }]}>
+            Enter what you are saving for
+          </Text>
           <TextInput
             style={[
               styles.goalNoteInput,
@@ -24,9 +26,7 @@ export default function NewGoal() {
             onFocus={() => setFocusedInput('goalTitle')}
             onBlur={() => setFocusedInput(undefined)}
           />
-          <Text style={[styles.text, { margin: 10, fontSize: 20 }]}>
-            Goal Amount
-          </Text>
+
           <TextInput
             style={[
               styles.goalNoteInput,

@@ -59,15 +59,18 @@ export default StyleSheet.create({
   },
   bottomView: {
     position: 'absolute',
-    bottom: 0,
+    paddingBottom: 15,
     left: 0,
     right: 0,
-    padding: 20,
+    bottom: 0,
+    height: 'auto',
+
+    minHeight: 80,
   },
 
   // button Styling
   button: {
-    backgroundColor: colors.backgroundSecondary,
+    backgroundColor: colors.iconBackground,
     height: '100',
     width: '80%',
     borderRadius: 25,
@@ -77,7 +80,7 @@ export default StyleSheet.create({
     padding: 18,
   },
   buttonText: {
-    color: colors.text,
+    color: colors.whiteAreas,
     fontSize: 16,
     fontWeight: 'bold',
   },
@@ -89,7 +92,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.backgroundSecondary,
+    backgroundColor: colors.iconBackground,
 
     borderRadius: 25,
     margin: 40,
@@ -101,7 +104,7 @@ export default StyleSheet.create({
   iconLabel: {
     marginTop: 5,
     fontSize: 12,
-    color: 'Black',
+    color: colors.whiteAreas,
   },
 
   // Category icon display
@@ -112,7 +115,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: colors.backgroundSecondary,
+    backgroundColor: colors.iconBackground,
 
     borderRadius: 12,
     margin: 15,
@@ -129,7 +132,7 @@ export default StyleSheet.create({
     paddingVertical: 10,
     paddingHorizontal: 15,
     borderRadius: 25,
-    backgroundColor: '#ddd',
+    backgroundColor: colors.greyAreas,
     marginTop: 10,
   },
   chartActiveTabButton: {
@@ -148,12 +151,7 @@ export default StyleSheet.create({
   // Goal Styling
   goalContainer: {
     flex: 1,
-    paddingTop: 40,
-    backgroundColor: '#f0f0f0',
-    paddingBottom: 40,
-  },
-  notesContainer: {
-    paddingBottom: 150, // Add padding to prevent notes from being cut off
+    backgroundColor: colors.greyAreas,
   },
   card: {
     backgroundColor: '#FFFB99', // Light pastel yellow
@@ -189,18 +187,18 @@ export default StyleSheet.create({
   },
 
   goalNoteInput: {
-    borderColor: '#ddd',
+    borderColor: colors.greyAreas,
     borderWidth: 1,
     padding: 10,
     margin: 10,
     borderRadius: 5,
-    backgroundColor: '#fff',
+    backgroundColor: colors.whiteAreas,
   },
   deleteButton: {
     position: 'absolute', // Position the button in the top-right corner
     top: 5,
     right: 5,
-    backgroundColor: 'grey',
+    backgroundColor: colors.greyAreas,
     borderRadius: 50,
     width: 20,
     height: 20,
@@ -208,7 +206,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   deleteButtonText: {
-    color: 'white',
+    color: colors.whiteAreas,
     fontWeight: 'bold',
     fontSize: 10,
   },
@@ -228,7 +226,7 @@ export default StyleSheet.create({
   tableHeaderText: {
     flex: 1,
     fontSize: 12,
-    color: 'white',
+    color: colors.whiteAreas,
     fontWeight: 'bold',
     textAlign: 'center',
   },

@@ -33,7 +33,7 @@ function IconItem({ name, label }: { name: string; label: string }) {
   return (
     <View style={styles.categoryIconContainer}>
       <TouchableOpacity style={styles.iconWrapper}>
-        <FontAwesome6 name={name} size={30} color="black" />
+        <FontAwesome6 name={name} size={24} color="white" />
         <Text style={styles.iconLabel}>{label}</Text>
       </TouchableOpacity>
     </View>

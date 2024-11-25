@@ -7,15 +7,15 @@ import styles from '../styles/styles';
 const homeIconData = [
   {
     id: '1',
-    name: 'sack-dollar',
+    name: 'money-bill-transfer',
     label: 'Expenses',
     screen: '/homeIconRoute/Expenses',
   },
   {
     id: '2',
-    name: 'note-sticky',
-    label: 'Notes',
-    screen: '/homeIconRoute/Income',
+    name: 'coins',
+    label: 'Balance',
+    screen: '/homeIconRoute/Balance',
   },
   {
     id: '3',
@@ -49,7 +49,7 @@ function IconItem({
         style={styles.iconWrapper}
         onPress={() => router.push(screen as Href)} // Use router.push to navigate
       >
-        <FontAwesome6 name={name} size={60} color="black" />
+        <FontAwesome6 name={name} size={42} color="white" />
         <Text style={styles.iconLabel}>{label}</Text>
       </TouchableOpacity>
     </View>
