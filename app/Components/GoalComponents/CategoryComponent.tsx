@@ -1,4 +1,5 @@
 import { FontAwesome6 } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import styles from '../../styles/styles';
@@ -32,19 +33,26 @@ const categoryIconData: Category[] = [
 function IconItem({ name, label }: { name: string; label: string }) {
   return (
     <View style={styles.categoryIconContainer}>
-      <TouchableOpacity style={styles.iconWrapper}>
+      <View style={styles.iconWrapper}>
         <FontAwesome6 name={name} size={24} color="white" />
         <Text style={styles.iconLabel}>{label}</Text>
-      </TouchableOpacity>
+      </View>
     </View>
   );
 }
 export default function CategoryIconDisplay() {
+  const router = useRouter();
+  const categoryIconPress = (categoryId: string) => {
+    router.push(`/Components/GoalComponents/${categoryId}`);
+  };
+
   return (
     <FlatList
       data={categoryIconData}
       renderItem={({ item }) => (
-        <IconItem name={item.name} label={item.label} />
+        <TouchableOpacity onPress={() => categoryIconPress(item.id)}>
+          <IconItem name={item.name} label={item.label} />
+        </TouchableOpacity>
       )}
       keyExtractor={(item) => item.id}
       numColumns={4}

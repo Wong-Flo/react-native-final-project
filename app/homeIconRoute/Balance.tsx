@@ -1,7 +1,6 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import React, { useCallback, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import { colors } from '../../constants/colors';
 import type { Expense } from '../../migrations/00003-createTableExpenses';
 import type { ExpensesResponseBodyGet } from '../api/expenses/index+api';
