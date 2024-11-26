@@ -66,9 +66,10 @@ export default function AddScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.text, { paddingBottom: 30 }]}>
+      <Text style={[styles.text, { paddingBottom: 15 }]}>
         Create a Transaction
       </Text>
+
       {/* Date Picker */}
       <View style={styles.transactionTextInput}>
         <DatePicker date={date} setDate={setDate} />
@@ -124,10 +125,11 @@ export default function AddScreen() {
       </View>
 
       {/* Add Expense Button */}
-
-      <TouchableOpacity style={styles.button} onPress={handleAddExpense}>
-        <Text style={styles.buttonText}>Add Expense</Text>
-      </TouchableOpacity>
+      <View style={{ paddingTop: 50 }}>
+        <TouchableOpacity style={styles.button} onPress={handleAddExpense}>
+          <Text style={styles.buttonText}>Add Expense</Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

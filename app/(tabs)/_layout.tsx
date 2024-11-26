@@ -7,6 +7,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: colors.iconBackground,
+        headerShown: false,
         headerTitleAlign: 'center',
         tabBarStyle: {
           height: 70,
@@ -29,6 +30,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="category"
         options={{
+          headerShown: false,
           title: 'Category',
           tabBarIcon: ({ color, focused }) =>
             TabBarIcon({

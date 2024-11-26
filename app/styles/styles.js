@@ -152,6 +152,7 @@ export default StyleSheet.create({
   goalContainer: {
     flex: 1,
     backgroundColor: colors.greyAreas,
+    padding: 15,
   },
   card: {
     backgroundColor: '#FFFB99', // Light pastel yellow

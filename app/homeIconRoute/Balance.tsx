@@ -89,7 +89,9 @@ export default function BalanceScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.text, { padding: 20 }]}>Current Spending</Text>
+      <Text style={[styles.text, { paddingBottom: 15, paddingTop: 50 }]}>
+        Total Expenses
+      </Text>
       {categoryTotals.length > 0 ? (
         <>
           <FlatList

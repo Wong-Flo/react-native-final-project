@@ -1,5 +1,12 @@
 import { useState } from 'react';
-import { Alert, Button, Text, TextInput, View } from 'react-native';
+import {
+  Alert,
+  Button,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import type { GoalsResponseBodyPost } from '../../api/goals/index+api';
 import styles from '../../styles/styles';
 
@@ -10,8 +17,8 @@ export default function NewGoal() {
 
   return (
     <>
-      <View style={[styles.goalContainer, { flex: 1 }]}>
-        <View style={styles.bottomView}>
+      <View style={styles.bottomView}>
+        <View style={styles.goalContainer}>
           <Text style={[styles.text, { margin: 10, fontSize: 20 }]}>
             Enter what you are saving for
           </Text>
@@ -44,8 +51,8 @@ export default function NewGoal() {
             onBlur={() => setFocusedInput('something wrong')}
           />
           <View style={{ width: '50%', alignSelf: 'center', paddingTop: 10 }}>
-            <Button
-              title="Add Goal"
+            <TouchableOpacity
+              style={styles.button}
               onPress={async () => {
                 const goalAmount = Number(goalAmountContent);
                 // Validate the input before sending
@@ -79,7 +86,9 @@ export default function NewGoal() {
                 setGoalTitle('');
                 setGoalAmountContent('');
               }}
-            />
+            >
+              <Text style={styles.buttonText}>Add a Goal</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
