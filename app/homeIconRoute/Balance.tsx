@@ -89,7 +89,7 @@ export default function BalanceScreen() {
   const grandTotal = calculateGrandTotal(); // Calculate the grand total
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { paddingBottom: 30 }]}>
       <Text style={[styles.text, { paddingBottom: 5, paddingTop: 50 }]}>
         Total Expenses
       </Text>

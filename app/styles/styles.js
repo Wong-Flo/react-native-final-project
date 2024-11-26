@@ -89,7 +89,18 @@ export default StyleSheet.create({
     fontWeight: 'bold',
   },
   // Icon styling
-
+  homeIconContainer: {
+    justifyContent: 'center', // Center items vertically
+    alignItems: 'center', // Center items horizontally
+    backgroundColor: colors.iconBackground,
+    borderWidth: 1,
+    borderColor: colors.whiteAreas,
+    flexDirection: 'column', // Stack items vertically (over each other)
+    padding: 10, // Add padding to the container for better spacing
+    height: 100,
+    width: 360,
+    borderRadius: 20,
+  },
   iconContainer: {
     width: 100,
     height: 100,

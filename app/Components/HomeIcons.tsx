@@ -2,6 +2,7 @@ import { FontAwesome6 } from '@expo/vector-icons';
 import { type Href, useRouter } from 'expo-router'; // Import useRouter for navigation
 import React from 'react';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
+import { colors } from '../../constants/colors';
 import styles from '../styles/styles';
 
 const homeIconData = [
@@ -44,14 +45,36 @@ function IconItem({
   const router = useRouter(); // Hook to navigate to other screens
 
   return (
-    <View style={styles.iconContainer}>
-      <TouchableOpacity
-        style={styles.iconWrapper}
-        onPress={() => router.push(screen as Href)} // Use router.push to navigate
-      >
-        <FontAwesome6 name={name} size={42} color="white" />
-        <Text style={styles.iconLabel}>{label}</Text>
-      </TouchableOpacity>
+    <View style={{ flex: 1, justifyContent: 'flex-end' }}>
+
+      <View style={styles.homeIconContainer}>
+        <TouchableOpacity
+          style={{
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            width: '100%',
+          }}
+          onPress={() => router.push(screen as Href)} // Use router.push to navigate
+        >
+          <View style={{ marginLeft: 20 }}>
+            <FontAwesome6 name={name} size={42} color="white" />
+          </View>
+          <Text
+            style={[
+              {
+                marginLeft: 10,
+                flex: 1,
+                textAlign: 'center',
+                fontSize: 24,
+                color: colors.whiteAreas,
+              },
+            ]}
+          >
+            {label}
+          </Text>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }
@@ -64,7 +87,6 @@ export default function HomeIconDisplay() {
         <IconItem name={item.name} label={item.label} screen={item.screen} />
       )}
       keyExtractor={(item) => item.id}
-      numColumns={2}
     />
   );
 }
