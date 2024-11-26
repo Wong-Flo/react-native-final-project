@@ -16,7 +16,7 @@ export default function GoalItem({ goal }: Props) {
       <FontAwesome6
         name="map-pin"
         size={24}
-        color="red"
+        color="#cd5c5c"
         style={styles.pinIcon}
       />
 

@@ -1,4 +1,5 @@
 import { Text, View } from 'react-native';
+import { colors } from '../../constants/colors';
 import { ViewExpenses } from '../Components/AddExpenseComponent/ViewExpense';
 import styles from '../styles/styles';
 
@@ -11,12 +12,18 @@ export default function ViewScreen() {
           justifyContent: 'center',
           paddingBottom: 15,
           paddingTop: 50,
+          backgroundColor: colors.background,
         }}
       >
         <Text style={styles.text}>Expenses</Text>
       </View>
 
-      <View style={styles.tableContainer}>
+      <View
+        style={[
+          styles.tableContainer,
+          { backgroundColor: colors.background, marginBottom: 30 },
+        ]}
+      >
         <View style={styles.tableHeaderRow}>
           <Text style={styles.tableHeaderText}>Date</Text>
           <Text style={styles.tableHeaderText}>Category</Text>

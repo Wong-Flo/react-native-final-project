@@ -72,10 +72,14 @@ export default function BalanceScreen() {
           alignItems: 'center',
         }}
       >
-        <Text style={{ fontWeight: 'bold', fontSize: 18 }}>
+        <Text
+          style={{ fontWeight: 'bold', fontSize: 18, color: colors.darkBlue }}
+        >
           {item.category}
         </Text>
-        <Text style={{ textAlign: 'right', fontSize: 18 }}>
+        <Text
+          style={{ textAlign: 'right', fontSize: 18, color: colors.darkBlue }}
+        >
           {item.total.toFixed(2)}€
         </Text>
       </View>
@@ -92,7 +96,9 @@ export default function BalanceScreen() {
       {/* Display grand total */}
       <View style={{ paddingBottom: 20 }}>
         <View style={styles.categoryViewTotal}>
-          <Text style={{ fontSize: 36, fontWeight: 'bold' }}>
+          <Text
+            style={{ fontSize: 36, fontWeight: 'bold', color: colors.darkBlue }}
+          >
             {grandTotal.toFixed(2)}€
           </Text>
         </View>

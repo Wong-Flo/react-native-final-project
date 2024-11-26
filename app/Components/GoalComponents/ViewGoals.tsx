@@ -90,7 +90,7 @@ export default function ViewGoals() {
     }, [isStale]),
   );
 
-  return (
+  return goals.length > 0 ? (
     <FlatList
       numColumns={2}
       data={goals}
@@ -100,5 +100,7 @@ export default function ViewGoals() {
       onRefresh={refreshGoals} // Trigger refreshGoals on pull-to-refresh
       ListEmptyComponent={<Text style={styles.text}>No goals yet</Text>}
     />
+  ) : (
+    <Text style={styles.text}>No goals yet</Text> // This message appears when there are no goals
   );
 }

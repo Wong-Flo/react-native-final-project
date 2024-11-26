@@ -1,6 +1,7 @@
 export const colors = {
-  background: '#F0F0F0',
+  background: '#e6ecf6',
   text: '#000000',
+  whiteText: '#FFFFFF',
   backgroundInput: '#EEEEEE',
   button: '#841584',
   description: '#000000',
@@ -8,5 +9,5 @@ export const colors = {
   iconBackground: '#151e3d',
   greyAreas: '#DDDDDD',
   whiteAreas: '#FFFFFF',
-  lightblueAreas: 'rgba(173, 216, 230, 0.5)',
+  darkBlue: '#151e3d',
 };

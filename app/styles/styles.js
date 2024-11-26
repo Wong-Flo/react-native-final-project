@@ -80,6 +80,8 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     padding: 18,
+    borderWidth: 2,
+    borderColor: colors.whiteAreas,
   },
   buttonText: {
     color: colors.whiteAreas,
@@ -157,7 +159,7 @@ export default StyleSheet.create({
     padding: 15,
   },
   card: {
-    backgroundColor: '#FFFB99', // Light pastel yellow
+    backgroundColor: '#ecf6e6',
     padding: 15,
     alignItems: 'center',
     margin: 10,
@@ -218,11 +220,11 @@ export default StyleSheet.create({
   tableContainer: {
     flex: 1,
     padding: 10,
-    backgroundColor: '#f8f9fa',
+    backgroundColor: colors.background,
   },
   tableHeaderRow: {
     flexDirection: 'row',
-    backgroundColor: '#343a40',
+    backgroundColor: colors.iconBackground,
     padding: 10,
     borderRadius: 5,
   },
@@ -248,20 +250,25 @@ export default StyleSheet.create({
   },
   categoryView: {
     flex: 1,
-    backgroundColor: colors.lightblueAreas,
+    backgroundColor: colors.whiteAreas,
     padding: 10,
     width: 350,
     height: 52,
     borderRadius: 15,
     margin: 5,
+    border: 1,
+    borderWidth: 2,
+    borderColor: colors.darkBlue,
   },
   categoryViewTotal: {
     marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'center',
     width: 350,
-    backgroundColor: '#D2F8D2',
+    backgroundColor: colors.whiteAreas,
     borderRadius: 20,
     padding: 10,
+    borderWidth: 2,
+    borderColor: colors.darkBlue,
   },
 });
