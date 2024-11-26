@@ -64,23 +64,20 @@ export default function BalanceScreen() {
   }: {
     item: { category: string; total: number };
   }) => (
-    <View
-      style={[
-        styles.tableContainer,
-        { width: 350, backgroundColor: colors.background },
-      ]}
-    >
-      <View>
-        <View
-          style={{
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-          }}
-        >
-          <Text>{item.category}</Text>
-          <Text style={{ textAlign: 'right' }}>{item.total.toFixed(2)}€</Text>
-        </View>
+    <View style={styles.categoryView}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Text style={{ fontWeight: 'bold', fontSize: 18 }}>
+          {item.category}
+        </Text>
+        <Text style={{ textAlign: 'right', fontSize: 18 }}>
+          {item.total.toFixed(2)}€
+        </Text>
       </View>
     </View>
   );
@@ -89,9 +86,17 @@ export default function BalanceScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={[styles.text, { paddingBottom: 15, paddingTop: 50 }]}>
+      <Text style={[styles.text, { paddingBottom: 5, paddingTop: 50 }]}>
         Total Expenses
       </Text>
+      {/* Display grand total */}
+      <View style={{ paddingBottom: 20 }}>
+        <View style={styles.categoryViewTotal}>
+          <Text style={{ fontSize: 36, fontWeight: 'bold' }}>
+            {grandTotal.toFixed(2)}€
+          </Text>
+        </View>
+      </View>
       {categoryTotals.length > 0 ? (
         <>
           <FlatList
@@ -99,20 +104,6 @@ export default function BalanceScreen() {
             renderItem={renderItem}
             keyExtractor={(item) => item.category}
           />
-          {/* Display grand total */}
-          <View
-            style={{
-              paddingVertical: 20,
-              borderTopWidth: 1,
-              marginTop: 10,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-              width: 350,
-            }}
-          >
-            <Text style={{ fontWeight: 'bold' }}>Total:</Text>
-            <Text style={{ fontWeight: 'bold' }}>{grandTotal.toFixed(2)}€</Text>
-          </View>
         </>
       ) : (
         <Text style={styles.text}>No Expenses Yet</Text>

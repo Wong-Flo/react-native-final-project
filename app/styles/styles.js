@@ -64,8 +64,10 @@ export default StyleSheet.create({
     right: 0,
     bottom: 0,
     height: 'auto',
+    alignItems: 'center',
 
     minHeight: 80,
+    width: 'auto',
   },
 
   // button Styling
@@ -151,7 +153,7 @@ export default StyleSheet.create({
   // Goal Styling
   goalContainer: {
     flex: 1,
-    backgroundColor: colors.greyAreas,
+    backgroundColor: colors.background,
     padding: 15,
   },
   card: {
@@ -171,9 +173,9 @@ export default StyleSheet.create({
     justifyContent: 'space-between', // Space out items
   },
   pinIcon: {
-    position: 'absolute', // Position the button in the top-right corner
+    position: 'absolute',
 
-    left: 20,
+    left: 10,
     zIndex: 1, // Ensure the pin icon is on top of the note
     transform: [{ rotate: '45deg' }],
   },
@@ -199,7 +201,7 @@ export default StyleSheet.create({
     position: 'absolute', // Position the button in the top-right corner
     top: 5,
     right: 5,
-    backgroundColor: colors.greyAreas,
+    backgroundColor: colors.whiteAreas,
     borderRadius: 50,
     width: 20,
     height: 20,
@@ -207,7 +209,7 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   deleteButtonText: {
-    color: colors.whiteAreas,
+    color: colors.greyAreas,
     fontWeight: 'bold',
     fontSize: 10,
   },
@@ -243,5 +245,23 @@ export default StyleSheet.create({
     fontSize: 12,
     color: '#212529',
     textAlign: 'center',
+  },
+  categoryView: {
+    flex: 1,
+    backgroundColor: colors.lightblueAreas,
+    padding: 10,
+    width: 350,
+    height: 52,
+    borderRadius: 15,
+    margin: 5,
+  },
+  categoryViewTotal: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    width: 350,
+    backgroundColor: '#D2F8D2',
+    borderRadius: 20,
+    padding: 10,
   },
 });

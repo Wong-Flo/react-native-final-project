@@ -1,6 +1,6 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { FlatList, Text } from 'react-native';
+import { Alert, FlatList, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { Goal } from '../../../migrations/00000-createTableGoals';
 import type { GoalsResponseBodyGet } from '../../api/goals/index+api';
@@ -15,8 +15,11 @@ export default function ViewGoals() {
 
   const router = useRouter();
 
-  const renderItem = (item: { item: Goal }) => <GoalItem goal={item.item} />;
+  const renderItem = ({ item }: { item: Goal }) => (
+    <GoalItem goal={item} onDelete={handleDeleteGoal} />
+  );
 
+  // Function to fetch goals from the API
   async function fetchGoals() {
     const [userResponse, goalsResponse]: [
       UserResponseBodyGet,
@@ -40,6 +43,28 @@ export default function ViewGoals() {
       setGoals(goalsResponse.goals);
     }
   }
+
+  // Function to handle goal deletion
+  const handleDeleteGoal = async (goalId: string) => {
+    try {
+      const response = await fetch(`/api/goals/${goalId}`, {
+        method: 'DELETE',
+        body: JSON.stringify({ sessionToken: 'your-session-token' }),
+      });
+
+      if (!response.ok) {
+        Alert.alert('Error', 'Failed to delete the goal');
+        return;
+      }
+
+      setGoals((prevGoals) =>
+        prevGoals.filter((goal) => goal.id !== Number(goalId)),
+      );
+    } catch (error) {
+      Alert.alert('Error', 'Something went wrong while deleting the goal');
+      console.error(error);
+    }
+  };
 
   async function refreshGoals() {
     setRefreshing(true); // Show refreshing spinner
@@ -66,17 +91,14 @@ export default function ViewGoals() {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        numColumns={2}
-        data={goals}
-        renderItem={renderItem}
-        keyExtractor={(item: Goal) => String(item.id)}
-        refreshing={refreshing} // Add pull-to-refresh spinner
-        onRefresh={refreshGoals} // Trigger refreshGoals on pull-to-refresh
-        contentContainerStyle={{ flexGrow: 1 }}
-        ListEmptyComponent={<Text style={styles.text}>No goals yet</Text>}
-      />
-    </SafeAreaView>
+    <FlatList
+      numColumns={2}
+      data={goals}
+      renderItem={renderItem}
+      keyExtractor={(item: Goal) => String(item.id)}
+      refreshing={refreshing} // Add pull-to-refresh spinner
+      onRefresh={refreshGoals} // Trigger refreshGoals on pull-to-refresh
+      ListEmptyComponent={<Text style={styles.text}>No goals yet</Text>}
+    />
   );
 }

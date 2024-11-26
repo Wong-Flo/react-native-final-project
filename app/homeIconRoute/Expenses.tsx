@@ -13,7 +13,7 @@ export default function ViewScreen() {
           paddingTop: 50,
         }}
       >
-        <Text style={styles.text}>All Expenses</Text>
+        <Text style={styles.text}>Expenses</Text>
       </View>
 
       <View style={styles.tableContainer}>

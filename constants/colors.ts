@@ -8,4 +8,5 @@ export const colors = {
   iconBackground: '#151e3d',
   greyAreas: '#DDDDDD',
   whiteAreas: '#FFFFFF',
+  lightblueAreas: 'rgba(173, 216, 230, 0.5)',
 };

@@ -50,7 +50,14 @@ export default function NewGoal() {
             onFocus={() => setFocusedInput('goalAmountContent')}
             onBlur={() => setFocusedInput('something wrong')}
           />
-          <View style={{ width: '50%', alignSelf: 'center', paddingTop: 10 }}>
+          <View
+            style={{
+              width: '50%',
+              alignSelf: 'center',
+              justifyContent: 'center',
+              paddingTop: 10,
+            }}
+          >
             <TouchableOpacity
               style={styles.button}
               onPress={async () => {

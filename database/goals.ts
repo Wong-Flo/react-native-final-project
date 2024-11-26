@@ -60,13 +60,22 @@ export async function createGoal(
   `;
   return goal;
 }
-export const deleteGoal = async (goalId: Goal['id']) => {
+export const deleteGoal = async (
+  sessionToken: Session['token'],
+  goalId: Goal['id'],
+) => {
   const [goal] = await sql<Goal[]>`
     DELETE FROM goals
     WHERE
       id = ${goalId}
+      AND EXISTS (
+        SELECT 1 FROM sessions
+        WHERE sessions.token = ${sessionToken}
+          AND sessions.user_id = goals.user_id
+          AND sessions.expiry_timestamp > now()
+      )
     RETURNING
-      goals.*
+      goals.*;
   `;
   return goal;
 };
