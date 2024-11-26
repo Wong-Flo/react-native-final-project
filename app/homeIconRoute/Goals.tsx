@@ -11,8 +11,8 @@ export default function GoalsScreen() {
           Saving Goals
         </Text>
         <ViewGoals />
+        <NewGoal />
       </View>
-      <NewGoal />
     </>
   );
 }

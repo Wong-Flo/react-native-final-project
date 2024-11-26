@@ -138,6 +138,19 @@ export default function ChartScreen() {
   const isLandscape = width > height;
   return (
     <View style={styles.container}>
+      <Text
+        style={[
+          styles.text,
+          {
+            paddingBottom: 15,
+            paddingTop: 50,
+            alignItems: 'center',
+            justifyContent: 'center',
+          },
+        ]}
+      >
+        Charts
+      </Text>
       {/* Tab bar */}
       <View style={styles.chartTabContainer}>
         <TabButton

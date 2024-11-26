@@ -59,7 +59,7 @@ export default StyleSheet.create({
   },
   bottomView: {
     position: 'absolute',
-    paddingBottom: 15,
+    paddingBottom: 0,
     left: 0,
     right: 0,
     bottom: 0,
