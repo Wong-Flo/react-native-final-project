@@ -4,31 +4,40 @@ import styles from '../styles/styles';
 
 export default function Tab() {
   return (
-    <View style={styles.container}>
-      <Text style={[styles.text, { paddingBottom: 15, paddingTop: 50 }]}>
-        Home
-      </Text>
-      <Text
-        style={{
-          fontSize: 24,
-          fontWeight: 'bold',
-          textAlign: 'center',
+    <>
+      <View style={styles.container}>
+        <View style={{ position: 'absolute', top: 0, paddingTop: 50 }}>
+          <Text style={[styles.text, { textAlign: 'center' }]}>Home</Text>
+          <Text
+            style={{
+              fontSize: 24,
+              fontWeight: 'bold',
+              textAlign: 'center',
+              padding: 30,
+            }}
+          >
+            Track your spending without breaking the bank
+          </Text>
+          <Text
+            style={{
+              fontSize: 16,
+              textAlign: 'center',
+            }}
+          >
+            Because keeping your budget in check
+          </Text>
+          <Text
+            style={{
+              fontSize: 16,
+              textAlign: 'center',
+            }}
+          >
+            should be as easy
+          </Text>
+        </View>
 
-          fontFamily: 'arial',
-        }}
-      >
-        Track your spending without breaking the bank
-      </Text>
-      <Text
-        style={{
-          fontSize: 18,
-          textAlign: 'center',
-          margin: 30,
-        }}
-      >
-        Because keeping your budget in check should be as easy
-      </Text>
-      <HomeIconDisplay />
-    </View>
+        <HomeIconDisplay />
+      </View>
+    </>
   );
 }

@@ -13,6 +13,7 @@ export default function TabLayout() {
           height: 70,
 
           paddingBottom: 10,
+          backgroundColor: colors.background,
         },
       }}
     >

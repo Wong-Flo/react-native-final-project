@@ -46,7 +46,6 @@ function IconItem({
 
   return (
     <View style={{ flex: 1, justifyContent: 'flex-end' }}>
-
       <View style={styles.homeIconContainer}>
         <TouchableOpacity
           style={{
@@ -81,12 +80,14 @@ function IconItem({
 
 export default function HomeIconDisplay() {
   return (
-    <FlatList
-      data={homeIconData}
-      renderItem={({ item }) => (
-        <IconItem name={item.name} label={item.label} screen={item.screen} />
-      )}
-      keyExtractor={(item) => item.id}
-    />
+    <View style={[styles.bottomView, { paddingBottom: 15 }]}>
+      <FlatList
+        data={homeIconData}
+        renderItem={({ item }) => (
+          <IconItem name={item.name} label={item.label} screen={item.screen} />
+        )}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
   );
 }

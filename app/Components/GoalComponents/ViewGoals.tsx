@@ -1,11 +1,12 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
-import { Alert, FlatList, Text } from 'react-native';
+import { Alert, FlatList, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import type { Goal } from '../../../migrations/00000-createTableGoals';
 import type { GoalsResponseBodyGet } from '../../api/goals/index+api';
 import type { UserResponseBodyGet } from '../../api/user+api';
 import styles from '../../styles/styles';
+import NewGoal from './CreateGoal';
 import GoalItem from './GoalItem';
 
 export default function ViewGoals() {
@@ -91,15 +92,16 @@ export default function ViewGoals() {
   );
 
   return goals.length > 0 ? (
-    <FlatList
-      numColumns={2}
-      data={goals}
-      renderItem={renderItem}
-      keyExtractor={(item: Goal) => String(item.id)}
-      refreshing={refreshing} // Add pull-to-refresh spinner
-      onRefresh={refreshGoals} // Trigger refreshGoals on pull-to-refresh
-      ListEmptyComponent={<Text style={styles.text}>No goals yet</Text>}
-    />
+    <>
+      <FlatList
+        numColumns={2}
+        data={goals}
+        renderItem={renderItem}
+        keyExtractor={(item: Goal) => String(item.id)}
+        refreshing={refreshing} // Add pull-to-refresh spinner
+        onRefresh={refreshGoals} // Trigger refreshGoals on pull-to-refresh
+      />
+    </>
   ) : (
     <Text style={styles.text}>No goals yet</Text> // This message appears when there are no goals
   );
