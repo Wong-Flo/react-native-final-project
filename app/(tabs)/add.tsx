@@ -125,7 +125,7 @@ export default function AddScreen() {
       </View>
 
       {/* Add Expense Button */}
-      <View style={{ paddingTop: 50 }}>
+      <View /* style={{ paddingTop: 50 }} */>
         <TouchableOpacity style={styles.button} onPress={handleAddExpense}>
           <Text style={styles.buttonText}>Add Expense</Text>
         </TouchableOpacity>
