@@ -9,7 +9,27 @@ export default StyleSheet.create({
     justifyContent: 'center',
     fontFamily: 'Roboto',
   },
-
+  modalContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalContent: {
+    width: '100%',
+    backgroundColor: colors.background,
+    borderRadius: 10,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.3,
+    shadowOffset: { width: 0, height: 2 },
+    elevation: 5,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  modalButtonContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   text: {
     color: colors.text,
     fontSize: 36,
