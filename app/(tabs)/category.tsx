@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Modal, Text, TextInput, TouchableOpacity, View } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import CategoryIconDisplay from '../Components/GoalComponents/CategoryComponent';
 import styles from '../styles/styles';
 

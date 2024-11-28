@@ -1,7 +1,7 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import React, { useEffect, useState } from 'react';
 import { Dimensions, Text, TouchableOpacity, View } from 'react-native';
-import { BarChart, LineChart, PieChart } from 'react-native-gifted-charts';
+import { BarChart, LineChart } from 'react-native-gifted-charts';
 import styles from '../styles/styles';
 
 const TabButton = ({
