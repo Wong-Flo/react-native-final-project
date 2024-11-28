@@ -130,9 +130,6 @@ export default function AddScreen() {
           <Text style={styles.buttonText}>Add Expense</Text>
         </TouchableOpacity>
       </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Add Income</Text>
-      </TouchableOpacity>
     </View>
   );
 }
