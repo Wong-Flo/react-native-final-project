@@ -1,6 +1,6 @@
 import { FontAwesome6 } from '@expo/vector-icons';
 import { useState } from 'react';
-import { Alert, Button, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, Text, TouchableOpacity, View } from 'react-native';
 import DatePicker from '../Components/AddExpenseComponent/DatePicker';
 import DescriptionInput from '../Components/AddExpenseComponent/DescriptionInput';
 import ItemInput from '../Components/AddExpenseComponent/ItemInput';

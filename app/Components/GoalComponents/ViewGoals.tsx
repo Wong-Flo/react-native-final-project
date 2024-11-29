@@ -1,12 +1,10 @@
 import { useFocusEffect, useRouter } from 'expo-router';
 import { useCallback, useState } from 'react';
 import { Alert, FlatList, Text, View } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
 import type { Goal } from '../../../migrations/00000-createTableGoals';
 import type { GoalsResponseBodyGet } from '../../api/goals/index+api';
 import type { UserResponseBodyGet } from '../../api/user+api';
 import styles from '../../styles/styles';
-import NewGoal from './CreateGoal';
 import GoalItem from './GoalItem';
 
 export default function ViewGoals() {

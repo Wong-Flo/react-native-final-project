@@ -1,5 +1,4 @@
 import { FontAwesome6 } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
 import { FlatList, Text, TouchableOpacity, View } from 'react-native';
 import SelectDropdown from 'react-native-select-dropdown';
 import styles from '../../styles/styles';
