@@ -4,13 +4,13 @@ Spend 'n' Save is a budget tracking app designed to help you manage your persona
 
 ## Technologies Used
 
-**Frontend:** React.js / React Native
+**Frontend:** React.js & React Native
 
 **Backend:** Node.js, REST APIs
 
 **Database:** PostgreSQL
 
-**Languages:** JavaScript / TypeScript
+**Languages:** JavaScript & TypeScript
 
 **Design:** Figma
 
