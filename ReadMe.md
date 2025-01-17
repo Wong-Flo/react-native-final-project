@@ -16,6 +16,8 @@ Spend 'n' Save is a budget tracking app designed to help you manage your persona
 
 **Database Modeling:** DrawSQL
 
+**Deployment:** Expo Application Services (EAS)
+
 ## Why use Spend 'n' Save?
 
 The idea for Spend 'n' Save stems from my personal need to maintain a clear overview of my finances. Many people find it challenging to track their spending effectively. With this app, I aim to simplify financial tracking and make it accessible for anyone looking to gain better control of their budget.
