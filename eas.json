@@ -1,19 +1,15 @@
 {
   "cli": {
-    "version": ">= 11.0.3"
+    "version": ">= 0.38.0",
+    "appVersionSource": "remote"
   },
   "build": {
     "development": {
       "developmentClient": true,
-      "distribution": "internal",
-      "extends": "base",
-      "env": {
-        "NODE_ENV": "development"
-      }
+      "distribution": "internal"
     },
     "preview": {
-      "distribution": "internal",
-      "extends": "base"
+      "distribution": "internal"
     },
     "production": {
       "extends": "base"
