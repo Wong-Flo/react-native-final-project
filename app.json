@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "react-native-final-project",
-    "slug": "react-native-final-project",
+    "name": "SpendnSave",
+    "slug": "SpendnSave",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -28,7 +28,10 @@
     },
     "extra": {
       "eas": {
-        "projectId": "26c7ec02-cf1e-4cdd-b391-904f6a92cd5f"
+        "projectId": "9b921b56-aaa7-4489-aaca-e68868a79c86"
+      },
+      "router": {
+        "origin": "http://localhost:3000"
       }
     },
     "experiments": {
@@ -52,6 +55,7 @@
           "origin": "http://localhost:3000"
         }
       ]
-    ]
+    ],
+    "owner": "flone.w"
   }
 }
