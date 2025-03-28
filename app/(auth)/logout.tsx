@@ -30,7 +30,7 @@ export default function Logout() {
 
   return (
     <>
-      <Text>Are you sure you want to Logout?</Text>
+      {/* <Text>Are you sure you want to Logout?</Text> */}
       <TouchableOpacity style={styles.button} onPress={logout}>
         <Text style={styles.buttonText}>Logout</Text>
       </TouchableOpacity>
