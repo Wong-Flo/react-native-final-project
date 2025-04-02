@@ -68,9 +68,9 @@ export default function LoginScreen() {
       />
 
       {/* Register Link */}
-      <Text style={styles.description} onPress={() => router.push('/register')}>
+      {/* <Text style={styles.description} onPress={() => router.push('/register')}>
         No Account? No problem, {'\n'}register here with a few clicks.
-      </Text>
+      </Text> */}
 
       {/* Login Button */}
       <TouchableOpacity style={styles.button} onPress={handleLogin}>
