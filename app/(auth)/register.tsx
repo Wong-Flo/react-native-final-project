@@ -67,8 +67,8 @@ export default function RegisterScreen() {
     <SafeAreaView style={styles.container}>
       {/* Back Button */}
 
-      <Text style={styles.text}>Sign Up</Text>
-      <Text style={styles.description}>Welcome to the registration page!</Text>
+      {/*  <Text style={styles.text}>Sign Up</Text>
+      <Text style={styles.description}>Welcome to the registration page!</Text> */}
 
       {/* Username Input */}
       <TextInput
