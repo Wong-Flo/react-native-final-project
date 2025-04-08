@@ -29,7 +29,7 @@ export default function Category() {
       <CategoryIconDisplay />
       <View style={{ paddingBottom: 25 }}>
         <TouchableOpacity style={styles.button} onPress={addWindow}>
-          <Text style={styles.buttonText}>Add Income</Text>
+          <Text style={styles.buttonText}>Add your Income</Text>
         </TouchableOpacity>
         <Modal
           animationType="slide"

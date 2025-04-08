@@ -32,7 +32,7 @@ export default function Tab() {
               textAlign: 'center',
             }}
           >
-            should be as easy
+            should be as easy as clicking a button.
           </Text>
         </View>
 
