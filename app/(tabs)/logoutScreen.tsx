@@ -27,7 +27,7 @@ export default function LogoutScreen() {
             },
           ]}
         >
-          want to Logout?
+          want to log out?
         </Text>
 
         <Logout />
